@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "Subscription Payment Website",
+  "start_url": ".",
+  "description": "A subscription payment website",
+  "orientation": "landscape",
+  "dir": "auto",
+  "lang": "en-PH",
+  "categories": ["subscription","payment","website"]
+}
