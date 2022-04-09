@@ -27,7 +27,7 @@ include ("config.php");
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
-<title>Shop</title>
+<title>Payoda</title>
 <style>
 body {
 	scroll-behavior: smooth;
@@ -67,6 +67,44 @@ button[type="submit"] {
 [type="submit"]:hover {
 	background-color: #d1d5db;
 }
+
+.card {
+	width: 250px;
+	margin: 5px;
+	border-radius: 10px;
+	background-color: #172529;
+	padding: 15px;
+	color: #feffff;
+	padding-top: auto;
+	padding-bottom: auto;
+}
+
+.card button {
+	color: black;
+	margin-top: 10px;
+}
+
+/*
+	color pallette
+	background: #172529;
+	background: #2B7A78;
+	background: #3AAFA9;
+	background: #DEF2F1;
+	background: #FEFFFF;
+*/
+.card-img-top {
+	max-height: 150px;
+	max-width: 150px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 20px;
+}
+
+.row {
+	margin-left: auto;
+	margin-right: auto;
+}
 </style>
 </head>
 <body>
@@ -92,29 +130,12 @@ if ($mysqli === false) {
 $sql = "SELECT * FROM persons where email='$current_user'";
 if ($result = mysqli_query($mysqli, $sql)) {
     if (mysqli_num_rows($result) > 0) {
-        echo "<div class='container flex'>";
-        echo "<table>";
-        echo "<tr>";
-        echo "<th>id</th>";
-        echo "<th>first_name </th>";
-        echo "<th>e-wallet</th>";
-        echo "<th>spotify bill:</th>";
-        echo "<th>discord nitro </th>";
-        echo "<th>ph premium bill </th>";
-        echo "</tr>";
         while ($row = mysqli_fetch_array($result)) {
-            echo "<tr>";
-            echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['first_name'] . "</td>";
-            echo "<td>" . $row['e_wallet'] . "</td>";
             $e_wallet = $row['e_wallet'];
-            echo "<td>" . $row['spotify_bill'] . "</td>";
-            echo "<td>" . $row['discord_nitro_bill'] . "</td>";
-            echo "<td>" . $row['ph_premium_bill'] . "</td>";
-            echo "</tr>";
+            $spotify_bill = $row['spotify_bill'];
+            $discord_nitro_bill = $row['discord_nitro_bill'];
+            $ph_premium_bill = $row['ph_premium_bill'];
         }
-        echo "</table>";
-        echo "</div>";
         // Free result set
         mysqli_free_result($result);
     } else {
@@ -128,26 +149,55 @@ if ($result = mysqli_query($mysqli, $sql)) {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
-				<p>Current user: <?php echo $current_user; ?> </p>
-				<p>
-					<label> Cash from E-Wallet: <?php echo $e_wallet; ?></label>
-				</p>
-				<p>
-					<label> My Subscriptions (to-pay): </label>
-				</p>
-
-				<form action="test-pay.php" method="post">
-					<label> Spotify: </label>
-					<button type="submit" name="spotify" value="submit">Pay</button>
-					<br> <label> Discord Nitro: </label>
-
-					<button type="submit" name="discord" value="submit">Pay</button>
-					<br> <label> PH Premium: </label>
-					<button type="submit" name="ph" value="submit">Pay</button>
-				</form>
-
+				<h1>Current user: <?php echo $current_user; ?> </h1>
+				<h1>
+					 Cash from E-Wallet: <?php echo $e_wallet; ?>
+				</h1>
 			</div>
-			
+
+			<div class="card">
+				<img class="card-img-top "
+					src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-download-logo-30.png"
+					alt="Card image" style="width: 100%">
+				<div class="card-body">
+					<h4 class="card-title">Spotify Bill Details</h4>
+					<p class="card-text">Amount: Php <?php echo $spotify_bill?></p>
+					<p class="card-text">Due date: April 31, 2022</p>
+
+					<form action="test-pay.php" method="post">
+						<button type="submit" name="spotify" value="submit">Pay</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="card">
+				<img class="card-img-top"
+					src="https://www.freepnglogos.com/uploads/discord-logo-png/discord-logo-logodownload-download-logotipos-1.png"
+					alt="Card image" style="width: 100%">
+				<div class="card-body">
+					<h4 class="card-title">Discord Nitro Bill</h4>
+					<p class="card-text">Amount: Php <?php echo $discord_nitro_bill?></p>
+					<p class="card-text">Due date: March 5, 2022</p>
+					<form action="test-pay.php" method="post">
+						<button type="submit" name="discord" value="submit">Pay</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="card">
+				<img class="card-img-top"
+					src="https://www.philhealth.gov.ph/news/2019/images/phic_logov.jpg"
+					alt="Card image" style="width: 100%">
+				<div class="card-body">
+					<h4 class="card-title">PhilHealth Premium Insurance</h4>
+					<p class="card-text">Amount: Php <?php echo $ph_premium_bill?></p>
+					<p class="card-text">Due date: March 5, 2022</p>
+					<form action="test-pay.php" method="post">
+						<button type="submit" name="ph" value="submit">Pay</button>
+					</form>
+				</div>
+			</div>
+
 		</div>
 	</div>
 
