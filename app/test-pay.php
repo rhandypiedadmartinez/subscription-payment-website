@@ -25,7 +25,7 @@ if ($result = mysqli_query($mysqli, $sql1)) {
 echo '<br>wallet: ' . $e_wallet . '<br>spotify: ' . $spotify . '<br>discord: ' . $discord . '<br>ph: ' . $ph . '<br>';
 
 if (isset($_POST['spotify'])) {
-    if ($e_wallet > $spotify) {
+    if ($e_wallet >= $spotify) {
         $sql = "UPDATE persons SET e_wallet=e_wallet-spotify_bill, spotify_bill=spotify_bill-spotify_bill WHERE email='$current_user'";
     }
     if ($mysqli->query($sql) === TRUE) {
@@ -37,7 +37,7 @@ if (isset($_POST['spotify'])) {
 }
 
 if (isset($_POST['discord'])) {
-    if ($e_wallet > $discord) {
+    if ($e_wallet >= $discord) {
         $sql = "UPDATE persons SET e_wallet=e_wallet-discord_nitro_bill, discord_nitro_bill=discord_nitro_bill-discord_nitro_bill WHERE email='$current_user'";
         if ($mysqli->query($sql) === TRUE) {
             echo "Record updated successfully";
@@ -49,7 +49,7 @@ if (isset($_POST['discord'])) {
 }
 
 if (isset($_POST['ph'])) {
-    if ($e_wallet > $ph) {
+    if ($e_wallet >= $ph) {
         $sql = "UPDATE persons SET e_wallet=e_wallet-ph_premium_bill, ph_premium_bill=ph_premium_bill-ph_premium_bill WHERE email='$current_user'";
         if ($mysqli->query($sql) === TRUE) {
             echo "Record updated successfully";

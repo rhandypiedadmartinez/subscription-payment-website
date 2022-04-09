@@ -39,7 +39,7 @@ tailwind.config = {
 	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
 	crossorigin="anonymous">
 
-<title>PayraCash</title>	
+<title>Payoda</title>	
 <link rel="stylesheet" href="./static/css/login.css">
 
 </head>
