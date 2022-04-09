@@ -51,8 +51,12 @@ mysqli_close($link);
 <html lang="en">
 	<head>
 		<link rel="manifest" href="manifest.json" />
+
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://unpkg.com/vue@3"></script>
+		<script src="https://unpkg.com/vue-router@4"></script>
+
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -124,6 +128,15 @@ mysqli_close($link);
 					</b> today!
 				</div>
 				<div>Again, this is static HTML content.</div>
+				<div id="app">
+					{{ text }}
+				</div>
+				<!-- <router-link></router-link> 
+				
+				<router-link></router-link>
+				<router-view></router-view>
+-->
+				<script src="./static/js/vue.js"></script>
 		</div>
 	</body>
 </html>
