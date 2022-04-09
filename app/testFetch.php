@@ -15,16 +15,20 @@ if($result = mysqli_query($link, $sql)){
         echo "<table>";
             echo "<tr>";
                 echo "<th>id</th>";
-                echo "<th>first_name</th>";
-                echo "<th>last_name</th>";
-                echo "<th>email</th>";
+                echo "<th>first_name: </th>";
+                echo "<th>e-wallet: </th>";
+                echo "<th>spotify bill:</th>";
+                echo "<th>ph premium bill: </th>";
+                echo "<th>discord nitro: </th>";
             echo "</tr>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['first_name'] . "</td>";
-                echo "<td>" . $row['last_name'] . "</td>";
-                echo "<td>" . $row['email'] . "</td>";
+                echo "<td>" . $row['e_wallet'] . "</td>"; 
+                echo "<td>" . $row['spotify_bill'] . "</td>";  
+                echo "<td>" . $row['ph_premium_bill'] . "</td>";                  
+                echo "<td>" . $row['discord_nitro_bill'] . "</td>";  
             echo "</tr>";
         }
         echo "</table>";
@@ -37,6 +41,8 @@ if($result = mysqli_query($link, $sql)){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
  
+include 'index.php';
 // Close connection
 mysqli_close($link);
+
 ?>
