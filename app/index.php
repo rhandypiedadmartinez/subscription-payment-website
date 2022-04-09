@@ -49,86 +49,81 @@ mysqli_close($link);
 
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-<link rel="manifest" href="manifest.json" />
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Subscription Payment Website" />
-<meta name="keywords" content="payment,subscription,website" />
-<title>Shop</title>
-</head>
-<body>
+	<head>
+		<link rel="manifest" href="manifest.json" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Subscription Payment Website" />
+		<meta name="keywords" content="payment,subscription,website" />
+		<title>Shop</title>
+	</head>
+	<body>
 
-	<br>
-	<div class="container">
-		<form>
-			<br>CURRENT USER: CLARK
-			<br>
-			<label> Cash from E-Wallet: </label>
-			<?php  
-			$sql = "SELECT * FROM persons";
-			
+		<br>
+		<div class="container">
+			<form>
+				<br>CURRENT USER: CLARK
+				<br>
+				<label> Cash from E-Wallet: </label>
+				<?php  
+				$sql = "SELECT * FROM persons";
+				
+				?>
+				<br> 
+				<label> My
+					Subscriptions (to-pay): </label> <br> 
+				<label> Spotify: </label>
+				<button>Pay <=this button not yet coded</button>
+				<br> <label> Discord Nitro: </label>
+				<button>Pay <=this button not yet coded</button>
+				<br> <label> PH Premium: </label>
+				<button>Pay <=this button not yet coded</button>
+
+			</form>
+			<br><br>
+			<form action="test-add-spotify-bill.php" method="post">
+				<button type="submit" name="action" value="submit">Test Add Spotify Bill 500 to clark</button>
+			</form>
+
+			<form action="test-pay-spotify-bill.php" method="post">
+				<button type="submit" name="action" value="submit">Test Pay All Spotify bill from clark</button>
+			</form>
+
+			<form action="update-mysql-pay.php" method="post">
+					<button type="submit" name="action" value="submit">Test Add Cash 1000 to Clark</button>
+			</form>
+			<br><br>
+				==================================================================
+				<br>LEARNING/TESTING SIDE BELOW:
+				<?php
+			echo "My first PHP script!";
 			?>
-			<br> 
-			<label> My
-				Subscriptions (to-pay): </label> <br> 
-			<label> Spotify: </label>
-			<button>Pay <=this button not yet coded</button>
-			<br> <label> Discord Nitro: </label>
-			<button>Pay <=this button not yet coded</button>
-			<br> <label> PH Premium: </label>
-			<button>Pay <=this button not yet coded</button>
 
-		</form>
-	</div>
-	<br><br>
-<form action="test-add-spotify-bill.php" method="post">
-    <button type="submit" name="action" value="submit">Test Add Spotify Bill 500 to clark</button>
-</form>
+			<h1>My first PHP page</h1>
 
-<form action="test-pay-spotify-bill.php" method="post">
-    <button type="submit" name="action" value="submit">Test Pay All Spotify bill from clark</button>
-</form>
+			<?php
+			echo "Hello World!";
+			?>
 
-<form action="update-mysql-pay.php" method="post">
-    <button type="submit" name="action" value="submit">Test Add Cash 1000 to Clark</button>
-</form>
-<br><br>
-	==================================================================
-	<br>LEARNING/TESTING SIDE BELOW:
-	<?php
-echo "My first PHP script!";
-?>
-
-<h1>My first PHP page</h1>
-
-<?php
-echo "Hello World!";
-?>
-
-<?php
-$color = "red";
-echo "My car is " . $color . "<br>";
-echo "My house is " . $COLOR . "<br>";
-echo "My boat is " . $coLOR . "<br>";
-?>
-	<div>This is pure HTML message.</div>
-	<div>Next, we’ll display today’s date and day by PHP!</div>
-	<div>
-		Today’s date is <b>
-			<?php echo date('Y/m/d') ?>
-		</b> and it’s a <b>
-			<?php echo date('l') ?>
-		</b> today!
-	</div>
-	<div>Again, this is static HTML content.</div>
-	
-	
-	
-</body>
+			<?php
+			$color = "red";
+			echo "My car is " . $color . "<br>";
+			echo "My house is " . $COLOR . "<br>";
+			echo "My boat is " . $coLOR . "<br>";
+			?>
+				<div>This is pure HTML message.</div>
+				<div>Next, we’ll display today’s date and day by PHP!</div>
+				<div>
+					Today’s date is <b>
+						<?php echo date('Y/m/d') ?>
+					</b> and it’s a <b>
+						<?php echo date('l') ?>
+					</b> today!
+				</div>
+				<div>Again, this is static HTML content.</div>
+		</div>
+	</body>
 </html>
-
-
-
