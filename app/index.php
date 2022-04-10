@@ -51,24 +51,6 @@ mysqli_close($mysqli);
 
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-	<head>
-		<link rel="manifest" href="manifest.json" />
-
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="https://unpkg.com/vue@3"></script>
-		<script src="https://unpkg.com/vue-router@4"></script>
-
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Subscription Payment Website" />
-		<meta name="keywords" content="payment,subscription,website" />
-		<title>Shop</title>
-	</head>
-	<body>
-=======
 <head>
 <link rel="manifest" href="manifest.json" />
 <link rel="stylesheet"
@@ -97,7 +79,6 @@ echo $current_user;
 			<button>Pay <=this button not yet coded</button>
 			<br> <label> PH Premium: </label>
 			<button>Pay <=this button not yet coded</button>
->>>>>>> main
 
 	</div>
 	<br>
@@ -112,62 +93,6 @@ echo $current_user;
 			Spotify bill from <?php echo $current_user;?></button>
 		</form>
 
-<<<<<<< HEAD
-			</form>
-			<br><br>
-			<form action="test-add-spotify-bill.php" method="post">
-				<button type="submit" name="action" value="submit">Test Add Spotify Bill 500 to clark</button>
-			</form>
-
-			<form action="test-pay-spotify-bill.php" method="post">
-				<button type="submit" name="action" value="submit">Test Pay All Spotify bill from clark</button>
-			</form>
-
-			<form action="update-mysql-pay.php" method="post">
-					<button type="submit" name="action" value="submit">Test Add Cash 1000 to Clark</button>
-			</form>
-			<br><br>
-				==================================================================
-				<br>LEARNING/TESTING SIDE BELOW:
-				<?php
-			echo "My first PHP script!";
-			?>
-
-			<h1>My first PHP page</h1>
-
-			<?php
-			echo "Hello World!";
-			?>
-
-			<?php
-			$color = "red";
-			echo "My car is " . $color . "<br>";
-			echo "My house is " . $COLOR . "<br>";
-			echo "My boat is " . $coLOR . "<br>";
-			?>
-				<div>This is pure HTML message.</div>
-				<div>Next, we’ll display today’s date and day by PHP!</div>
-				<div>
-					Today’s date is <b>
-						<?php echo date('Y/m/d') ?>
-					</b> and it’s a <b>
-						<?php echo date('l') ?>
-					</b> today!
-				</div>
-				<div>Again, this is static HTML content.</div>
-				<div id="app">
-					{{ text }}
-				</div>
-				<!-- <router-link></router-link> 
-				
-				<router-link></router-link>
-				<router-view></router-view>
--->
-				<script src="./static/js/vue.js"></script>
-		</div>
-	</body>
-</html>
-=======
 		<form action="test-mysql-add-cash.php" method="post">
 			<button type="submit" name="action" value="submit">Test Add Cash 1000
 			to <?php echo $current_user;?></button>
@@ -178,4 +103,3 @@ echo $current_user;
 	</div>
 </body>
 </html>
->>>>>>> main
