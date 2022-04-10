@@ -3,7 +3,7 @@
 	$current_user=$_SESSION["login"];
 	include("config.php");
 
-$sql = "UPDATE persons SET e_wallet=e_wallet-spotify_bill, spotify_bill=spotify_bill-spotify_bill WHERE email='$current_user'"; 
+$sql = "UPDATE persons SET e_wallet=e_wallet+1000 WHERE email='$current_user'"; 
 
 if ($mysqli->query($sql) === TRUE) {
   echo "Record updated successfully";
@@ -14,5 +14,6 @@ if ($mysqli->query($sql) === TRUE) {
 $mysqli->close();
 
 header("location: index.php");
+
 ?>
 

@@ -1,33 +1,19 @@
 <?php
-usleep(500000);
-set_exception_handler(
-    function(Throwable $e) {
-        echo $e->getMessage();
-    }
-);
 
-$servername = "localhost";
-$username = "admin";
-$password = "IcedCoffee";
-$dbname = "earth";
+	session_start ();
+	$current_user=$_SESSION["login"];
+	include("config.php");
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+$sql = "UPDATE persons SET spotify_bill=spotify_bill+500 WHERE email='$current_user'"; 
 
-$sql = "UPDATE persons SET spotify_bill=spotify_bill+500 WHERE first_name='Clark'"; 
-
-if ($conn->query($sql) === TRUE) {
+if ($mysqli->query($sql) === TRUE) {
   echo "Record updated successfully";
 } else {
-  echo "Error updating record: " . $conn->error;
+  echo "Error updating record: " . $mysqli->error;
 }
 
-include 'index.php';
-$conn->close();
+$mysqli->close();
 
+header("location: index.php");
 ?>
 
