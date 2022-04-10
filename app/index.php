@@ -110,7 +110,7 @@ echo $current_user;
 			<button type="submit" name="action" value="submit">Clear all for <?php echo $current_user;?></button>
 		</form>
 		<br> <a href="logout.php"><h2>
-				<font color="red">Logout</font>
+				<div style="color: red">Logout</div>
 			</h2> </a>
 	</div>
 </body>
