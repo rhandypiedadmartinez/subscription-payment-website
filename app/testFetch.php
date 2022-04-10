@@ -43,8 +43,4 @@ if($result = mysqli_query($link, $sql)){
  
 // Close connection
 mysqli_close($link);
-
-
-header("location: main.php");
-
 ?>
