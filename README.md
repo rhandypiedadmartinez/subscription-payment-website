@@ -4,7 +4,7 @@ A website to pay your bills for subscription plans including Spotify Premium, Yo
 
 1. Install docker on your system
 2. Run ./run-lap-container.sh
-3. access localhost:80
+3. access localhost:8006
 
 
 for terminal
@@ -19,5 +19,3 @@ to run server and mysql:
 `sudo docker exec -ti (id/name) mysql -uroot`
 
 
-
-*** Di ko pa nalalagay yung update MySql Codes ***

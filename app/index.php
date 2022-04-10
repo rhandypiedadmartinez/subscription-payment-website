@@ -1,9 +1,9 @@
-<?php 
-	session_start ();
-	if(!isset($_SESSION["login"]))
-		header("location:login.php"); 
-	$current_user=$_SESSION["login"];
-	include("config.php");
+<?php
+session_start();
+if (! isset($_SESSION["login"]))
+    header("location:login.php");
+$current_user = $_SESSION["login"];
+include ("config.php");
 
 // Check connection
 if ($mysqli === false) {
@@ -53,6 +53,10 @@ mysqli_close($mysqli);
 <html lang="en">
 <head>
 <link rel="manifest" href="manifest.json" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,50 +65,41 @@ mysqli_close($mysqli);
 <title>Shop</title>
 </head>
 <body>
-
 	<br>
 	<div class="container">
-		<form>
-			<br>Current user: <?php 
-echo $current_user;?> <br> <label> Cash from E-Wallet: </label>
-			<?php
-            // Set session variables
-            $_SESSION["favcolor"] = "green";
-            $_SESSION["favanimal"] = "cat";
-            echo "Session variables are set.";
-            ?>
-            <br> <label> My Subscriptions (to-pay): </label> <br> <label>
-				Spotify: </label>
-			<button>Pay <=this button not yet coded</button>
-			<br> <label> Discord Nitro: </label>
+			<br>Current user: <?php
+echo $current_user;
+?> <br> <label> Cash from E-Wallet: </label> <br> <label> My
+				Subscriptions (to-pay): </label> <br> <label> Spotify: </label>
+			
+		<form action="test-pay-spotify-bill.php" method="post">
+			<button type="submit" name="action" value="submit">Test Pay All
+			Spotify bill from <?php echo $current_user;?></button>
+		</form> <label> Discord Nitro: </label>
 			<button>Pay <=this button not yet coded</button>
 			<br> <label> PH Premium: </label>
 			<button>Pay <=this button not yet coded</button>
 
-		</form>
 	</div>
 	<br>
 	<br>
-	<form action="test-add-spotify-bill.php" method="post">
-		<button type="submit" name="action" value="submit">Test Add Spotify
+	<div class="container">
+		<form action="test-add-spotify-bill.php" method="post">
+			<button type="submit" name="action" value="submit">Test Add Spotify
 			Bill 500 to <?php echo $current_user;?></button>
-	</form>
-
-	<form action="test-pay-spotify-bill.php" method="post">
-		<button type="submit" name="action" value="submit">Test Pay All
+		</form>
+		<form action="test-pay-spotify-bill.php" method="post">
+			<button type="submit" name="action" value="submit">Test Pay All
 			Spotify bill from <?php echo $current_user;?></button>
-	</form>
+		</form>
 
-	<form action="test-mysql-add-cash.php" method="post">
-		<button type="submit" name="action" value="submit">Test Add Cash 1000
+		<form action="test-mysql-add-cash.php" method="post">
+			<button type="submit" name="action" value="submit">Test Add Cash 1000
 			to <?php echo $current_user;?></button>
-	</form>
-	<br>
-
-
-<a href="logout.php"><h2><font color="red">Logout</font></h2>
+		</form>
+		<br> <a href="logout.php"><h2>
+				<font color="red">Logout</font>
+			</h2> </a>
+	</div>
 </body>
 </html>
-
-
-
