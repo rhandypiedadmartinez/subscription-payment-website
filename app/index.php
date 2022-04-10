@@ -67,35 +67,47 @@ mysqli_close($mysqli);
 <body>
 	<br>
 	<div class="container">
-			<br>Current user: <?php
+		<br>Current user: <?php
 echo $current_user;
 ?> <br> <label> Cash from E-Wallet: </label> <br> <label> My
-				Subscriptions (to-pay): </label> <br> <label> Spotify: </label>
-			
-		<form action="test-pay-spotify-bill.php" method="post">
-			<button type="submit" name="action" value="submit">Test Pay All
-			Spotify bill from <?php echo $current_user;?></button>
-		</form> <label> Discord Nitro: </label>
-			<button>Pay <=this button not yet coded</button>
+			Subscriptions (to-pay): </label> <br>
+
+		<form action="test-pay.php" method="post">
+			<label> Spotify: </label>
+			<button type="submit" name="spotify" value="submit">Pay</button>
+			<br> <label> Discord Nitro: </label>
+
+			<button type="submit" name="discord" value="submit">Pay</button>
 			<br> <label> PH Premium: </label>
-			<button>Pay <=this button not yet coded</button>
+			<button type="submit" name="ph" value="submit">Pay</button>
+
+		
+		</form>
+
+
+		
 
 	</div>
 	<br>
 	<br>
 	<div class="container">
-		<form action="test-add-spotify-bill.php" method="post">
-			<button type="submit" name="action" value="submit">Test Add Spotify
+		<form action="test-add-bill.php" method="post">
+			<button type="submit" name="spotify" value="submit">Test Add Spotify
+			Bill 200 to <?php echo $current_user;?></button>
+			<br><button type="submit" name="discord" value="submit">Test Add Discord
 			Bill 500 to <?php echo $current_user;?></button>
+			<br><button type="submit" name="ph" value="submit">Test Add PH
+			Bill 300 to <?php echo $current_user;?></button>
+			
+			
 		</form>
-		<form action="test-pay-spotify-bill.php" method="post">
-			<button type="submit" name="action" value="submit">Test Pay All
-			Spotify bill from <?php echo $current_user;?></button>
-		</form>
-
 		<form action="test-mysql-add-cash.php" method="post">
 			<button type="submit" name="action" value="submit">Test Add Cash 1000
 			to <?php echo $current_user;?></button>
+		</form>
+		
+		<form action="clear-all-bills-cash.php" method="post">
+			<button type="submit" name="action" value="submit">Clear all for <?php echo $current_user;?></button>
 		</form>
 		<br> <a href="logout.php"><h2>
 				<font color="red">Logout</font>
