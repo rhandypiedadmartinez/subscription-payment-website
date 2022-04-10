@@ -41,8 +41,10 @@ if($result = mysqli_query($link, $sql)){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
  
-include 'index.php';
 // Close connection
 mysqli_close($link);
+
+
+header("location: main.php");
 
 ?>
