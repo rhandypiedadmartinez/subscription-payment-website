@@ -2,6 +2,13 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>PayraCash</title>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+	crossorigin="anonymous">
+
 <style>
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -41,19 +48,18 @@ body, html {
 	border-color: #3AAFA9;
 	border-bottom-color: #172529;
 	border-width: 3px;
-	border-style: ridge;
+	border-style: groove;
 }
 
 /* The popup form - hidden by default */
 .form-popup {
-	border-color: 3AAFA9;
+	border-color: #3AAFA9;
 	display: none;
 	position: fixed;
 	bottom: 0;
 	right: 15px;
-	border: 3px groove;
+	border-style: groove;
 	z-index: 9;
-	border-style: ridge;
 	border-radius: 10px;
 }
 
@@ -73,6 +79,7 @@ body, html {
 	margin: 5px 0 22px 0;
 	border: none;
 	background: #f1f1f1;
+	border-radius: 10px;
 }
 
 /* When the inputs get focus, do something */
@@ -84,7 +91,7 @@ body, html {
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-	max-width: 400px;
+	max-width: 100%;
 	background-color: #04AA6D;
 	color: white;
 	padding: 16px 20px;
@@ -93,6 +100,7 @@ body, html {
 	width: 100%;
 	margin-bottom: 10px;
 	opacity: 0.8;
+	border-radius: 10px;
 }
 
 /* Add a red background color to the cancel button */
@@ -116,26 +124,28 @@ body, html {
 </style>
 </head>
 <body>
-	<div container="">
-		<h1 style="font-size: 90px; margin-left: 150px">PayraCash</h1>
+	<div
+		style="font-size: 90px; margin-left: 100px; margin-top:120px; font-family: sans-serif;">
 
+		<i class="fas fa-feather-alt"> PayraCash</i>
 	</div>
 
 	<button class="open-button" onclick="openForm()">Login</button>
+	<b>
 
-	<div class="form-popup" id="myForm">
-		<form action="loginprocess.php" method="POST" class="form-container">
-			<h1>Login</h1>
+		<div class="form-popup" id="myForm">
+			<form action="loginprocess.php" method="POST" class="form-container">
+				<h1>Login</h1>
 
-			<label for="email"><b>Email</b></label> <input type="text"
-				placeholder="Enter Email" name="uname" required=""> <label for="psw"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="upassword"
-				required="">
+				<label for="email"><b>Email</b></label> <input type="text"
+					placeholder="Enter Email" name="uname" required=""> <label
+					for="psw"><b>Password</b></label> <input type="password"
+					placeholder="Enter Password" name="upassword" required="">
 
-			<button type="submit" value="Login" name="sub" class="btn">Login</button>
-			<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-		</form>
-	</div>
+				<button type="submit" value="Login" name="sub" class="btn">Login</button>
+				<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+			</form>
+		</div>
                 <?php
                 if (isset($_REQUEST["err"]))
                     $msg = "Invalid username or Password";
