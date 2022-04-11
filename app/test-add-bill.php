@@ -1,6 +1,8 @@
 <?php
 session_start();
+
 $current_user = $_SESSION["login"];
+$isAdmin = $_SESSION["isAdmin"];
 include ("config.php");
 
 if (isset($_POST['spotify'])) {
@@ -19,6 +21,12 @@ if ($mysqli->query($sql) === TRUE) {
 
 $mysqli->close();
 
-header("location: index.php");
+
+if ($isAdmin=="true"){
+    echo 'yes';
+      header("location: admin-page.php");
+} else {
+      header("location: index.php");
+}
 ?>
 
