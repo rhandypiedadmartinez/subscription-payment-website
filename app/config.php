@@ -6,5 +6,9 @@ $databaseUsername = 'admin'; // root by default for localhost
 $databasePassword = 'IcedCoffee';  // by defualt empty for localhost
 
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
-
+// Check connection
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+echo "Connected successfully";
 ?>

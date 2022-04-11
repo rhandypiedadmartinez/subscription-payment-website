@@ -117,11 +117,11 @@ mysqli_close($mysqli);
 
 		</form>
 
-		<form action="test-mysql-add-cash.php" method="post">
+		<form action="test-add-cash.php" method="post">
 			<button type="submit" name="action" value="submit">Test add cash</button>
 		</form>
 
-		<form action="clear-all-bills-cash.php" method="post">
+		<form action="clear-all.php" method="post">
 			<button type="submit" name="action" value="submit">Clear</button>
 		</form>
 		<br> <a href="logout.php"><h2>
