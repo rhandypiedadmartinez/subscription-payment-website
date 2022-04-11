@@ -2,6 +2,7 @@
 session_start();
 include ("config.php");
 
+echo 'isAdmin'.$_SESSION['isAdmin'];
 $current_user = $_SESSION["login"];
 // Check connection
 
@@ -24,6 +25,8 @@ if ($result = mysqli_query($mysqli, $sql)) {
         echo "<th>spotify bill</th>";
         echo "<th>ph premium bill </th>";
         echo "<th>discord nitro </th>";
+        echo "<th>sha1_password </th>";
+        
         echo "</tr>";
         while ($row = mysqli_fetch_array($result)) {
             echo "<tr>";
@@ -35,6 +38,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
             echo "<td>" . $row['spotify_bill'] . "</td>";
             echo "<td>" . $row['ph_premium_bill'] . "</td>";
             echo "<td>" . $row['discord_nitro_bill'] . "</td>";
+            echo "<td>" . $row['sha1_password'] . "</td>";
             echo "</tr>";
         }
         echo "</table>";

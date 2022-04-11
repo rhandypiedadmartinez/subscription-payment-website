@@ -13,6 +13,7 @@ if (isset($_REQUEST['sub'])) {
         $result = mysqli_fetch_array($res);
         if ($result) {
             $_SESSION["login"] = $a;
+            $_SESSION["isAdmin"] = "false";
             header("location:index.php");
         } else {
             header("location:login.php?err=1");

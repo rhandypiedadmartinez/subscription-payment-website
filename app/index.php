@@ -3,6 +3,7 @@ session_start();
 if (! isset($_SESSION["login"]))
     header("location:login.php");
 $current_user = $_SESSION["login"];
+echo 'isAdmin' . $_SESSION['isAdmin'];
 include ("config.php");
 
 // Check connection
@@ -80,9 +81,15 @@ mysqli_close($mysqli);
 			<br> <label> PH Premium: </label>
 			<button type="submit" name="ph" value="submit">Pay</button>
 		</form>
-		<br> <a href="logout.php">
+		<a href="logout.php">
 			<h5>
 				<div style="color: red">Logout</div>
+
+			</h5>
+		</a> <a href=change-password.php>
+			<h5>
+				<div style="color: green">Change Password</div>
+
 			</h5>
 		</a>
 	</div>
