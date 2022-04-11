@@ -67,9 +67,8 @@ mysqli_close($mysqli);
 <body>
 	<br>
 	<div class="container">
-		<br>Current user: <?php
-echo $current_user;
-?> <br> <label> Cash from E-Wallet: </label> <br> <label> My
+		<br>Current user: <?php echo $current_user; ?> 
+		<br> <label> Cash from E-Wallet: </label> <br> <label> My
 			Subscriptions (to-pay): </label> <br>
 
 		<form action="test-pay.php" method="post">
@@ -80,40 +79,12 @@ echo $current_user;
 			<button type="submit" name="discord" value="submit">Pay</button>
 			<br> <label> PH Premium: </label>
 			<button type="submit" name="ph" value="submit">Pay</button>
-
-
 		</form>
-
-
-
-
-	</div>
-	<br>
-	<br>
-	<div class="container">
-		<form action="test-add-bill.php" method="post">
-			<button type="submit" name="spotify" value="submit">Test Add Spotify
-			Bill 200 to <?php echo $current_user;?></button>
-			<br>
-			<button type="submit" name="discord" value="submit">Test Add Discord
-			Bill 500 to <?php echo $current_user;?></button>
-			<br>
-			<button type="submit" name="ph" value="submit">Test Add PH
-			Bill 300 to <?php echo $current_user;?></button>
-
-
-		</form>
-		<form action="test-mysql-add-cash.php" method="post">
-			<button type="submit" name="action" value="submit">Test Add Cash 1000
-			to <?php echo $current_user;?></button>
-		</form>
-
-		<form action="clear-all-bills-cash.php" method="post">
-			<button type="submit" name="action" value="submit">Clear all for <?php echo $current_user;?></button>
-		</form>
-		<br> <a href="logout.php"><h2>
+		<br> <a href="logout.php">
+			<h5>
 				<div style="color: red">Logout</div>
-			</h2> </a>
+			</h5>
+		</a>
 	</div>
 </body>
 </html>
