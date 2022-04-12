@@ -41,6 +41,7 @@ body, html {
 	{
 	background-color: #ddd;
 	outline: none;
+	color: black;
 }
 
 /* Set a style for the submit/login button */
@@ -60,20 +61,20 @@ body, html {
 .form-container .btn:hover, .open-button:hover {
 	opacity: 1;
 }
+
 /*
-		color pallette
-		background: #172529;
-		background: #2B7A78;
-		background: #3AAFA9;
-		background: #DEF2F1;
-		background: #FEFFFF;
-		*/
+	color pallette
+	background: #172529;
+	background: #2B7A78;
+	background: #3AAFA9;
+	background: #DEF2F1;
+	background: #FEFFFF;
+*/
+
 .center {
 	display: flex;
 	justify-content: center;
 }
-
-
 
 @media only screen and (max-width: 400px) {
   .form-container {

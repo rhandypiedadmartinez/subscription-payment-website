@@ -52,18 +52,26 @@ mysqli_close($mysqli);
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>    
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
 <link rel="manifest" href="manifest.json" />
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
 <title>Shop</title>
+<style>
+a {
+    text-decoration: none;
+}
+</style>
 </head>
 <body>
 	<br>
@@ -83,14 +91,12 @@ mysqli_close($mysqli);
 		</form>
 		<a href="logout.php">
 			<h5>
-				<div style="color: red">Logout</div>
-
+				<div class="text-red-600 hover:text-red-700">Logout</div>
 			</h5>
 		</a> <a href=change-password.php>
 			<h5>
-				<div style="color: green">Change Password</div>
-
-			</h5>
+				<div class="text-green-600 hover:text-green-700">Change Password</div>
+			</h5>  
 		</a>
 	</div>
 </body>
