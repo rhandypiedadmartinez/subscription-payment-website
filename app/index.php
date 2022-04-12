@@ -77,6 +77,20 @@ table {
 th {padding: 8px; border: 1px solid black;}
 td {padding: 8px; border: 1px solid black;}
 
+/* nakakatamad na lagyan ng Tailwind classes ung mga buttons
+kaya pure css nlng:)
+*/
+ 
+button[type="submit"] {
+    background-color: #e5e7eb;
+    border: 1px solid #475569;
+    padding: 4px 12px 4px 12px;
+    border-radius: 0.375rem;
+}
+[type="submit"]:hover {
+    background-color: #d1d5db;
+}
+
 </style>
 </head>
 <body>

@@ -21,6 +21,17 @@ echo $current_user . '=' . 'isAdmin' . $_SESSION['isAdmin'];
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
 <title>Shop</title>
+<style>
+a {
+	text-decoration: none;
+}
+#Return {
+	color: red;
+}
+#Return:hover {
+	color: maroon;
+}
+</style>
 </head>
 <body>
 	<br>
@@ -36,7 +47,7 @@ echo $current_user . '=' . 'isAdmin' . $_SESSION['isAdmin'];
         	</div>
         
         	<a href="index.php"><h2>
-        			<div style="color: red">Return to Home</div>
+        			<div id="Return">Return to Home</div>
         	</h2> </a>
 		</form>
 		
