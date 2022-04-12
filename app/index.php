@@ -3,7 +3,7 @@ session_start();
 if (! isset($_SESSION["login"]))
     header("location:login.php");
 $current_user = $_SESSION["login"];
-echo 'isAdmin' . $_SESSION['isAdmin'];
+echo 'isAdmin ' . $_SESSION['isAdmin'];
 include ("config.php");
 
 // Check connection
@@ -15,7 +15,7 @@ if ($mysqli === false) {
 $sql = "SELECT * FROM persons where email='$current_user'";
 if ($result = mysqli_query($mysqli, $sql)) {
     if (mysqli_num_rows($result) > 0) {
-        echo "<div class='container'>";
+        echo "<div class='container flex'>";
         echo "<table>";
         echo "<tr>";
         echo "<th>id</th>";
@@ -71,6 +71,12 @@ mysqli_close($mysqli);
 a {
     text-decoration: none;
 }
+table {
+    border: 1px solid black;
+}
+th {padding: 8px; border: 1px solid black;}
+td {padding: 8px; border: 1px solid black;}
+
 </style>
 </head>
 <body>

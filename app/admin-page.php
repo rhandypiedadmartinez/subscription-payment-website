@@ -66,27 +66,49 @@ mysqli_close($mysqli);
 <html lang="en">
 <head>
 <link rel="manifest" href="manifest.json" />
+
+<!-- Bootstrap -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
+<style>
+table {
+    border: 1px solid black;
+}
+th {padding: 8px; border: 1px solid black;}
+td {padding: 8px; border: 1px solid black;}
+a {
+    text-decoration: none;
+}
+</style>
 <title>Shop</title>
 </head>
 <body>
 	<br>
 	<br>
 	<br>
-	<div class="container">
-		
+	<div class="container-md">
+
+<!-- 
+Tailwind Classes Button preset:
+"py-1 bg-gray-200 rounded-md px-3 border-solid border-slate-600 hover:bg-gray-300 border-[1px]"
+
+ -->
+
 	<?php echo 'Current test user: '.$_SESSION["login"] ?>
 		<form method="post" action="admin-page.php">
-			<input type="text" name="testuser" id="testuser"> <input
-				type="submit" value="click">
+			<input type="text" name="testuser" id="testuser" class="border-solid border border-slate-800 rounded-md p-1 pl-5"> 
+            <input type="submit" value="click" class="bg-gray-200 rounded-md py-1 px-3 border-solid border-slate-600 border-[1px] hover:bg-gray-300">
 		</form>
 		
         <?php
@@ -98,36 +120,98 @@ mysqli_close($mysqli);
         ?>
         <form action="test-pay.php" method="post">
 			<label> Spotify: </label>
-			<button type="submit" name="spotify" value="submit">Pay</button>
+			<button 
+                type="submit" 
+                name="spotify" 
+                value="submit" 
+                class="bg-gray-200 
+                rounded-md py-1 px-3 
+                border-solid border-slate-600 
+                border-[1px] hover:bg-gray-300"
+            >Pay</button>
 			<br> <label> Discord Nitro: </label>
 
-			<button type="submit" name="discord" value="submit">Pay</button>
+			<button 
+                type="submit" 
+                name="discord" 
+                value="submit" 
+                class="bg-gray-200 
+                rounded-md py-1 px-3 
+                border-solid border-slate-600 
+                border-[1px] hover:bg-gray-300"
+            >Pay</button>
 			<br> <label> PH Premium: </label>
-			<button type="submit" name="ph" value="submit">Pay</button>
-
-
+			<button 
+                type="submit" 
+                name="ph" 
+                value="submit" 
+                class="bg-gray-200 
+                rounded-md py-1 px-3 
+                border-solid border-slate-600 
+                border-[1px] hover:bg-gray-300"
+            >Pay</button>
 		</form>
 		<form action="test-add-bill.php" method="post">
-			<button type="submit" name="spotify" value="submit">Test Add Spotify
+			<button 
+                type="submit" 
+                name="spotify" 
+                value="submit" 
+                class="bg-gray-200 
+                rounded-md py-1 px-3 
+                border-solid border-slate-600 
+                border-[1px] hover:bg-gray-300"
+            >Test Add Spotify
 			Bill 200 to <?php echo $current_user;?></button>
 			<br>
-			<button type="submit" name="discord" value="submit">Test Add Discord
+			<button 
+                type="submit" 
+                name="discord" 
+                value="submit" 
+                class="bg-gray-200 
+                rounded-md py-1 px-3 
+                border-solid border-slate-600 
+                border-[1px] hover:bg-gray-300"
+            >Test Add Discord
 			Bill 500 to <?php echo $current_user;?></button>
 			<br>
-			<button type="submit" name="ph" value="submit">Test Add PH
+			<button 
+                type="submit" 
+                name="ph" 
+                value="submit" 
+                class="bg-gray-200 
+                rounded-md py-1 px-3 
+                border-solid border-slate-600 
+                border-[1px] hover:bg-gray-300"
+            >Test Add PH
 			Bill 300 to <?php echo $current_user;?></button>
 
 		</form>
 
 		<form action="test-add-cash.php" method="post">
-			<button type="submit" name="action" value="submit">Test add cash</button>
+			<button 
+                type="submit" 
+                name="action" 
+                value="submit" 
+                class="bg-gray-200 
+                rounded-md py-1 px-3 
+                border-solid border-slate-600 
+                border-[1px] hover:bg-gray-300"
+            >Test add cash</button>
 		</form>
 
 		<form action="clear-all.php" method="post">
-			<button type="submit" name="action" value="submit">Clear</button>
+			<button 
+                type="submit" 
+                name="action" 
+                value="submit" 
+                class="bg-gray-200 
+                rounded-md py-1 px-3 
+                border-solid border-slate-600 
+                border-[1px] hover:bg-gray-300"
+            >Clear</button>
 		</form>
 		<br> <a href="logout.php"><h2>
-				<div style="color: red">logout admin</div>
+				<div class="text-red-600 hover:text-red-900">logout admin</div>
 			</h2> </a>
 	</div>
 </body>

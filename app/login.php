@@ -13,6 +13,17 @@
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 
+<script>
+tailwind.config = {
+	theme: {
+		screens: {
+			'sm': '360px',
+			'md': '600px'
+		}
+	}
+}
+</script>
+
 <!-- jQuery -->
 <script	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -32,7 +43,7 @@
 <link rel="stylesheet" href="./static/css/login.css">
 
 </head>
-<body class="pt-20">
+<body class="sm:items-center md:items-start md:mt-20 justify-center flex">
 	<div>
 		<div class="center">
 			<span style="font-family: serif;" class="text-7xl mb-12"> 
@@ -40,9 +51,9 @@
 			</span>
 		</div>
 		<div class="center">
-			<form action="loginprocess.php" method="POST" class="form-container rounded-xl font-weight-bold p-4">
+			<form action="loginprocess.php" method="POST" class="form-container bg-[#172529] rounded-xl font-weight-bold p-4">
 
-				<div style class="fw-bold">Login</div>
+				<div style class="fw-bold text-2xl mb-1">Login</div>
 
 				<label for="email">
 					<b>Email</b>
@@ -59,17 +70,17 @@
 				<button type="submit" value="Login" name="sub" class="btn">Login</button>
 
 				<label class="ml-12 pt-3">
-				     <?php
-                if (isset($_REQUEST["err"]))
-                    $msg = "Invalid username or Password";
-                ?>
-                <h5 class="text-red-600">
-                <?php
+					<?php
+						if (isset($_REQUEST["err"]))
+								$msg = "Invalid username or Password";
+						?>
+						<h5 class="text-red-500">
+						<?php
 
-                if (isset($msg)) {
-                    echo $msg;
-                }
-                ?>
+						if (isset($msg)) {
+								echo $msg;
+						}
+						?>
 				</label>
 				
 			</h5>
