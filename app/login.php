@@ -1,8 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+	crossorigin="anonymous">
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <title>PayraCash</title>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
@@ -19,48 +42,15 @@ body {
 }
 
 body, html {
+    padding-top:40px;
 	scroll-behavior: smooth;
 	height: 100%;
 	background: #3AAFA9;
 	font-family: monospace;
-	padding-top: 50px;
 	color: #FEFFFF;
 	/* For browsers that do not support gradients */
 	background-image: linear-gradient(270deg, #172529, 42%, #3AAFA9);
-	padding-top: 75px;
 	color: #FEFFFF;
-}
-
-/* Button used to open the contact form - fixed at the bottom of the page */
-.open-button {
-	background-color: #172529;
-	color: white;
-	padding: 16px 20px;
-	border: none;
-	cursor: pointer;
-	opacity: 0.8;
-	position: fixed;
-	bottom: 0px;
-	right: 28px;
-	width: 370px;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-color: #3AAFA9;
-	border-bottom-color: #172529;
-	border-width: 3px;
-	border-style: groove;
-}
-
-/* The popup form - hidden by default */
-.form-popup {
-	border-color: #3AAFA9;
-	display: none;
-	position: fixed;
-	bottom: 0;
-	right: 15px;
-	border-style: groove;
-	z-index: 9;
-	border-radius: 10px;
 }
 
 /* Add styles to the form container */
@@ -69,7 +59,9 @@ body, html {
 	padding: 10px;
 	background-color: #172529;
 	border-radius: 10px;
-	border-color: 3AAFA9;
+	font-weight: bold;
+	border-style: groove ;
+	border-color: #FEFFFF;
 }
 
 /* Full-width input fields */
@@ -92,27 +84,20 @@ body, html {
 /* Set a style for the submit/login button */
 .form-container .btn {
 	max-width: 100%;
-	background-color: #04AA6D;
+	background-color: #3AAFA9;
 	color: white;
 	padding: 16px 20px;
 	border: none;
 	cursor: pointer;
 	width: 100%;
-	margin-bottom: 10px;
 	opacity: 0.8;
 	border-radius: 10px;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-	background-color: red;
 }
 
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
 	opacity: 1;
 }
-
 /*
 		color pallette
 		background: #172529;
@@ -121,21 +106,22 @@ body, html {
 		background: #DEF2F1;
 		background: #FEFFFF;
 		*/
+.center {
+	display: flex;
+	justify-content: center;
+}
 </style>
 </head>
 <body>
-	<div
-		style="font-size: 90px; margin-left: 100px; margin-top:120px; font-family: sans-serif;">
-
-		<i class="fas fa-feather-alt"> PayraCash</i>
-	</div>
-
-	<button class="open-button" onclick="openForm()">Login</button>
-	<b>
-
-		<div class="form-popup" id="myForm">
+	<div>
+		<div class="center">
+			<span style="font-size: 90px; font-family: serif;"> <b>Pay</b>oda
+			</span>
+		</div>
+		<div class="center">
 			<form action="loginprocess.php" method="POST" class="form-container">
-				<h1>Login</h1>
+
+				<h1 style="font-weight: bold;">Login</h1>
 
 				<label for="email"><b>Email</b></label> <input type="text"
 					placeholder="Enter Email" name="uname" required=""> <label
@@ -143,32 +129,38 @@ body, html {
 					placeholder="Enter Password" name="upassword" required="">
 
 				<button type="submit" value="Login" name="sub" class="btn">Login</button>
-				<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-			</form>
-		</div>
-                <?php
+
+				<label style="padding-top: 10px;margin-left: 50px;">
+				     <?php
                 if (isset($_REQUEST["err"]))
                     $msg = "Invalid username or Password";
                 ?>
-                <p style="color: blue;">
+                <h5 style="color: red;">
                 <?php
 
                 if (isset($msg)) {
                     echo $msg;
                 }
                 ?>
+				</label>
+				
+			</h5>
+			</form>
+			 
+		</div>
+		<br>
+	</div>
+	</div>
 
 
 
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
+
+
+
+
+
+
 
 </body>
 </html>
