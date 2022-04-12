@@ -22,8 +22,8 @@ if ($result = mysqli_query($mysqli, $sql)) {
         echo "<th>first_name </th>";
         echo "<th>e-wallet</th>";
         echo "<th>spotify bill:</th>";
-        echo "<th>ph premium bill </th>";
         echo "<th>discord nitro </th>";
+        echo "<th>ph premium bill </th>";
         echo "</tr>";
         while ($row = mysqli_fetch_array($result)) {
             echo "<tr>";
@@ -31,8 +31,8 @@ if ($result = mysqli_query($mysqli, $sql)) {
             echo "<td>" . $row['first_name'] . "</td>";
             echo "<td>" . $row['e_wallet'] . "</td>";
             echo "<td>" . $row['spotify_bill'] . "</td>";
-            echo "<td>" . $row['ph_premium_bill'] . "</td>";
             echo "<td>" . $row['discord_nitro_bill'] . "</td>";
+            echo "<td>" . $row['ph_premium_bill'] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
