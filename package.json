@@ -2,7 +2,6 @@
   "name": "subscription-payment-website",
   "version": "1.0.0",
   "description": "Subscription Payment Website",
-  "main": "index.js",
   "repository": "https://github.com/RhandyPiedadMartinez/subscription-payment-website",
   "author": "Rhandy",
   "license": "MIT",
