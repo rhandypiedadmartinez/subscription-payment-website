@@ -4,6 +4,10 @@ $current_user = $_SESSION["login"];
 $isAdmin = $_SESSION["isAdmin"];
 include ("config.php");
 
+$sql = "SELECT e_wallet FROM persons";
+
+//$sql = "UPDATE persons SET e_wallet=1000 WHERE email='rhandy'";
+
 if (isset($_POST['spotify'])) {
  
     $sql = "UPDATE persons SET e_wallet=e_wallet-spotify_bill, spotify_bill=spotify_bill-spotify_bill WHERE email='$current_user'";
