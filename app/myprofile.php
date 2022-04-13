@@ -30,7 +30,12 @@ mysqli_close($mysqli);
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
-<title>Shop</title>
+<title>
+	<?php 
+	echo $current_user;
+	echo " - My Profile";
+	?>
+</title>
 <style>
 body {
 	scroll-behavior: smooth;
@@ -58,7 +63,7 @@ body {
 
 				<a href=change-password.php>
 					<h5>
-						<div class="text-black-600 hover:text-black-700">Change Password</div>
+						<div class="text-gray-900 hover:text-gray-100">Change Password</div>
 					</h5>
 				</a>
 

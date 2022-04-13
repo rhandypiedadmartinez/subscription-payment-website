@@ -1,0 +1,75 @@
+body {
+	scroll-behavior: smooth;
+	height: 100%;
+	background: #3AAFA9;
+}
+
+a {
+	text-decoration: none;
+}
+
+table {
+	border: 1px solid black;
+}
+
+th {
+	padding: 8px;
+	border: 1px solid black;
+}
+
+td {
+	padding: 8px;
+	border: 1px solid black;
+}
+
+/* nakakatamad na lagyan ng Tailwind classes ung mga buttons
+kaya pure css nlng:)
+*/
+button[type="submit"] {
+	border: 1px solid #475569;
+	padding: 4px 12px 4px 12px;
+	border-radius: 0.375rem;
+}
+
+
+.card {
+	width: 250px;
+	margin: 5px;
+	border-radius: 10px;
+	background-color: #172529;
+	padding: 15px;
+	color: #feffff;
+	padding-top: auto;
+	padding-bottom: auto;
+}
+
+.card button {
+	color: black;
+	margin-top: 10px;
+}
+
+/*
+	color pallette
+	background: #172529;
+	background: #2B7A78;
+	background: #3AAFA9;
+	background: #DEF2F1;
+	background: #FEFFFF;
+*/
+.card-img-top {
+	max-height: 150px;
+	max-width: 150px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 20px;
+}
+
+.row {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container {
+	margin-top: 20px;
+}

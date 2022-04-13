@@ -11,10 +11,16 @@ echo $current_user . '=' . 'isAdmin' . $_SESSION['isAdmin'];
 <html lang="en">
 <head>
 <link rel="manifest" href="manifest.json" />
+
+<!-- Bootstrap -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,13 +47,13 @@ a {
 		
 	<?php echo 'Input new password'?>
 		<form method="post" action="change-password.php">
-			<input type="text" name="new_password" id="new_password"> <input
-				type="submit" value="click">
+			<input type="text" name="new_password" id="new_password" class="mt-2 border-solid border-[1px] border-slate-800 rounded-md p-1 pl-5"> 
+			<input type="submit" value="click" class="bg-gray-200 rounded-md py-1 px-3 border-solid border-slate-600 border-[1px] hover:bg-gray-300">
 	
-        	</div>
+        	
         
         	<a href="index.php"><h2>
-        			<div id="Return">Return to Home</div>
+        		<div id="Return" class="mt-3">Return to Home</div>
         	</h2> </a>
 		</form>
 		
@@ -61,7 +67,7 @@ a {
             header("location: index.php");
         }
         ?>
-
+	</div>
 </body>
 </html>
 

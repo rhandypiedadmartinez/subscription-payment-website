@@ -28,88 +28,11 @@ include ("config.php");
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
 <title>Payoda</title>
-<style>
-body {
-	scroll-behavior: smooth;
-	height: 100%;
-	background: #3AAFA9;
-	padding-top: 80px;
-}
-
-a {
-	text-decoration: none;
-}
-
-table {
-	border: 1px solid black;
-}
-
-th {
-	padding: 8px;
-	border: 1px solid black;
-}
-
-td {
-	padding: 8px;
-	border: 1px solid black;
-}
-
-/* nakakatamad na lagyan ng Tailwind classes ung mga buttons
-kaya pure css nlng:)
-*/
-button[type="submit"] {
-	background-color: #e5e7eb;
-	border: 1px solid #475569;
-	padding: 4px 12px 4px 12px;
-	border-radius: 0.375rem;
-}
-
-[type="submit"]:hover {
-	background-color: #d1d5db;
-}
-
-.card {
-	width: 250px;
-	margin: 5px;
-	border-radius: 10px;
-	background-color: #172529;
-	padding: 15px;
-	color: #feffff;
-	padding-top: auto;
-	padding-bottom: auto;
-}
-
-.card button {
-	color: black;
-	margin-top: 10px;
-}
-
-/*
-	color pallette
-	background: #172529;
-	background: #2B7A78;
-	background: #3AAFA9;
-	background: #DEF2F1;
-	background: #FEFFFF;
-*/
-.card-img-top {
-	max-height: 150px;
-	max-width: 150px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 20px;
-}
-
-.row {
-	margin-left: auto;
-	margin-right: auto;
-}
-</style>
+<link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
 	<nav
-		class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-center">
+		class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link active">Pay Bills</a></li>
 			<li class="nav-item"><a class="nav-link" href="payment-history.php">Payment
@@ -148,15 +71,23 @@ if ($result = mysqli_query($mysqli, $sql)) {
 ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 col-sm-12">
-				<h1>Current user: <?php echo $current_user; ?> </h1>
-				<h1>
-					 Cash from E-Wallet: <?php echo $e_wallet; ?>
-				</h1>
+			<div class="col-md-12 col-sm-12 text-lg">
+				<div>
+					Current user: 
+					<span class="font-bold">
+						<?php echo $current_user; ?>
+					</span> 
+				</div>
+				<div>
+					Cash from E-Wallet: 
+					<span class="font-bold">
+						<?php echo $e_wallet; ?>
+					</span>
+				</div>
 			</div>
 
 			<div class="card">
-				<img class="card-img-top "
+				<img class="card-img-top"
 					src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-download-logo-30.png"
 					alt="Card image" style="width: 100%">
 				<div class="card-body">
@@ -165,7 +96,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
 					<p class="card-text">Due date: April 31, 2022</p>
 
 					<form action="test-pay.php" method="post">
-						<button type="submit" name="spotify" value="submit">Pay</button>
+						<button type="submit" name="spotify" value="submit" class="bg-gray-200 hover:bg-gray-400">Pay</button>
 					</form>
 				</div>
 			</div>
@@ -179,7 +110,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
 					<p class="card-text">Amount: Php <?php echo $discord_nitro_bill?></p>
 					<p class="card-text">Due date: March 5, 2022</p>
 					<form action="test-pay.php" method="post">
-						<button type="submit" name="discord" value="submit">Pay</button>
+						<button type="submit" name="discord" value="submit" class="bg-gray-200 hover:bg-gray-400">Pay</button>
 					</form>
 				</div>
 			</div>
@@ -193,7 +124,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
 					<p class="card-text">Amount: Php <?php echo $ph_premium_bill?></p>
 					<p class="card-text">Due date: March 5, 2022</p>
 					<form action="test-pay.php" method="post">
-						<button type="submit" name="ph" value="submit">Pay</button>
+						<button type="submit" name="ph" value="submit" class="bg-gray-200 hover:bg-gray-400">Pay</button>
 					</form>
 				</div>
 			</div>
