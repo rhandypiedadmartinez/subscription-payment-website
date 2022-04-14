@@ -27,7 +27,9 @@ if ($result_biller = mysqli_query($mysqli, $sql_biller)) {
     if (mysqli_num_rows($result_biller) > 0) {
         while ($row = mysqli_fetch_array($result_biller)) {
             array_push($billers, new billers($row['biller_name'], $row['biller_bill_name'], $row['ref']));
+
         }
     }
 }
+
 ?>

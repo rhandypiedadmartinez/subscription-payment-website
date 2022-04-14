@@ -75,7 +75,7 @@ a {
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
 				
-                    	<?php
+                   	<?php
 
                     // Attempt select query execution
                     $sql = "SELECT * FROM persons";

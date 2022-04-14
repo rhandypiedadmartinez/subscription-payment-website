@@ -3,20 +3,25 @@ session_start();
 if (! isset($_SESSION["login"]))
     header("location:login.php");
 $current_user = $_SESSION["login"];
+$_SESSION["e_wallet"];
 
 include ("config.php");
 include ("model/get-billers-list.php"); // creates array of all billers and details
 include ("model/mybills.php"); // creates array of bills object
 
-if ($mysqli === false) {
+if ($mysqli == false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$sql = "SELECT e_wallet FROM persons where email='$current_user'";
+$sql = "SELECT first_name,last_name,e_wallet, profile_pic FROM persons where email='$current_user'";
 if ($result = mysqli_query($mysqli, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
-            $e_wallet = $row['e_wallet'];
+            $_SESSION["e_wallet"] = $row['e_wallet'];
+            $profile_pic= $row['profile_pic'];
+            $fname = $row['first_name'];
+            $lname = $row['last_name'];
+            
         }
         // Free result set
         mysqli_free_result($result);
@@ -61,37 +66,40 @@ if ($result = mysqli_query($mysqli, $sql)) {
 		</ul>
 	</nav>
 
-	<div class="container">
+	<div class="container" style="margin-left: 100px">
 		<div class="row">
-			<div class="col-md-12 col-sm-12 text-lg">
-				<div class="font-bold">
-					Current user: 
-						<?php echo $current_user; ?>
-				</div>
-				<div class="font-bold">
-					Cash from E-Wallet:
-						<?php echo $e_wallet; ?>
+			<div class="card">
+				<img class="card-img-top"
+					src="<?php echo $profile_pic?>" alt="Card image"
+					style="width: 100%">
+				<div class="card-body">
+					<h4 class="card-title"> <?php echo $fname.' '.$lname;?> </h4>
+					<h4 class="card-title"> Email: <?php echo $current_user;?> </h4>
+					<p class="card-text">E-Wallet: Php <?php echo $_SESSION["e_wallet"]; ?></p>
+					<form action="controller/test-pay.php" method="post">
+						<button type="submit" name="'.$bill->billername.'" value="submit"
+							class="bg-gray-200 hover:bg-gray-400">Pay</button>
+					</form>
 				</div>
 			</div>
-
-				<?php 
-				foreach ($bills as $bill) {
-				echo '<div class="card">
+				<?php
+    foreach ($bills as $bill) {
+        echo '<div class="card">
         				<img class="card-img-top"
-        					src="'.$bill->ref.'"
+        					src="' . $bill->ref . '"
         					alt="Card image" style="width: 100%">
         				<div class="card-body">
         					<h4 class="card-title">' . $bill->billername . ' </h4>
-        					<p class="card-text">Amount: Php  '. $bill->amount .'</p>
+        					<p class="card-text">Amount: Php  ' . $bill->amount . '</p>
         					<p class="card-text">Due date: March 5, 2022</p>
         					<form action="controller/test-pay.php" method="post">
-        						<button type="submit" name="ph" value="submit"
+        						<button type="submit" name="' . $bill->billername . '" value="submit"
         							class="bg-gray-200 hover:bg-gray-400">Pay</button>
         					</form>
         				</div>
         			</div>';
-        		}
-				?>
+    }
+    ?>
 		</div>
 	</div>
 

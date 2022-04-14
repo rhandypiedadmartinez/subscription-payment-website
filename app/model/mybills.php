@@ -10,16 +10,15 @@ class bill
 {
     
     public $billername;
-    
     public $amount;
-    
     public $ref;
     
-    function __construct($billername, $amount, $ref)
+    function __construct($billername, $amount, $ref, $billname)
     {
         $this->billername = $billername;
         $this->amount = $amount;
         $this->ref = $ref;
+        $this->billname = $billname;
     }
 }
 
@@ -34,7 +33,8 @@ foreach ($billers as $biller) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {
                 if ($row[$biller->bill_name] != - 1) {
-                    array_push($bills, new bill($biller->billername, $row[$biller->bill_name], $billers[$i]->ref));
+                    array_push($bills, new bill($biller->billername, $row[$biller->bill_name], $billers[$i]->ref, $billers[$i]->bill_name));
+      //              echo $biller->billername.$row[$biller->bill_name].$billers[$i]->ref.$billers[$i]->bill_name.'<br>';
                 }
                 $i ++;
             }
