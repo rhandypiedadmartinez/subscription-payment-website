@@ -38,6 +38,7 @@ body {
 	background: #3AAFA9;
 	padding-top: 80px;
 }
+
 table {
 	border: 1px solid black;
 }
@@ -67,7 +68,7 @@ a {
 					History</a></li>
 			<li class="nav-item"><a class="nav-link" href="myprofile.php">My
 					Profile</a></li>
-			<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+			<li class="nav-item"><a class="nav-link" href="controller/logout.php">Logout</a></li>
 		</ul>
 	</nav>
 	<div class="container">
@@ -89,9 +90,10 @@ a {
                             echo "<th>last_name </th>";
                             echo "<th>e-wallet</th>";
                             echo "<th>spotify bill</th>";
-
                             echo "<th>discord nitro </th>";
                             echo "<th>ph premium bill </th>";
+                            echo "<th>netflix bill </th>";
+                            echo "<th>youtube bill </th>";
                             echo "<th>sha1_password </th>";
 
                             echo "</tr>";
@@ -104,8 +106,9 @@ a {
                                 echo "<td>" . $row['e_wallet'] . "</td>";
                                 echo "<td>" . $row['spotify_bill'] . "</td>";
                                 echo "<td>" . $row['discord_nitro_bill'] . "</td>";
-
                                 echo "<td>" . $row['ph_premium_bill'] . "</td>";
+                                echo "<td>" . $row['netflix_bill'] . "</td>";
+                                echo "<td>" . $row['yt_premium_bill'] . "</td>";
                                 echo "<td>" . $row['sha1_password'] . "</td>";
                                 echo "</tr>";
                             }
@@ -131,7 +134,7 @@ Tailwind Classes Button preset:
  -->
 
 	<?php echo 'Current test user: '.$_SESSION["login"] ?>
-		<form method="post" action="admin-page.php">
+		<form method="post" action="../admin-page.php">
 					<input type="text" name="testuser" id="testuser"
 						class="border-solid border border-slate-800 rounded-md p-1 pl-5">
 					<input type="submit" value="click"
@@ -145,43 +148,43 @@ Tailwind Classes Button preset:
             header("location:admin-page.php");
         }
         ?>
-        <form action="test-pay.php" method="post">
+        <form action="controller/test-pay.php" method="post">
 					<label> Spotify: </label>
-					<button type="submit" name="spotify" value="submit"
+					<button type="submit" name="Spotify" value="submit"
 						class="bg-gray-200 
                 rounded-md py-1 px-3 
                 border-solid border-slate-600 
                 border-[1px] hover:bg-gray-300">Pay</button>
 					<br> <label> Discord Nitro: </label>
 
-					<button type="submit" name="discord" value="submit"
+					<button type="submit" name="Discord" value="submit"
 						class="bg-gray-200 
                 rounded-md py-1 px-3 
                 border-solid border-slate-600 
                 border-[1px] hover:bg-gray-300">Pay</button>
 					<br> <label> PH Premium: </label>
-					<button type="submit" name="ph" value="submit"
+					<button type="submit" name="PhilHealth" value="submit"
 						class="bg-gray-200 
                 rounded-md py-1 px-3 
                 border-solid border-slate-600 
                 border-[1px] hover:bg-gray-300">Pay</button>
 				</form>
-				<form action="test-add-bill.php" method="post">
-					<button type="submit" name="spotify" value="submit"
+				<form action="controller/test-add-bill.php" method="post">
+					<button type="submit" name="Spotify" value="submit"
 						class="bg-gray-200 
                 rounded-md py-1 px-3 
                 border-solid border-slate-600 
                 border-[1px] hover:bg-gray-300">Test Add Spotify
 			Bill 200 to <?php echo $current_user;?></button>
 					<br>
-					<button type="submit" name="discord" value="submit"
+					<button type="submit" name="Discord" value="submit"
 						class="bg-gray-200 
                 rounded-md py-1 px-3 
                 border-solid border-slate-600 
                 border-[1px] hover:bg-gray-300">Test Add Discord
 			Bill 500 to <?php echo $current_user;?></button>
 					<br>
-					<button type="submit" name="ph" value="submit"
+					<button type="submit" name="PhilHealth" value="submit"
 						class="bg-gray-200 
                 rounded-md py-1 px-3 
                 border-solid border-slate-600 
@@ -190,7 +193,7 @@ Tailwind Classes Button preset:
 
 				</form>
 
-				<form action="test-add-cash.php" method="post">
+				<form action="controller/test-add-cash.php" method="post">
 					<button type="submit" name="action" value="submit"
 						class="bg-gray-200 
                 rounded-md py-1 px-3 
@@ -198,7 +201,7 @@ Tailwind Classes Button preset:
                 border-[1px] hover:bg-gray-300">Test add cash</button>
 				</form>
 
-				<form action="clear-all.php" method="post">
+				<form action="controller/clear-all.php" method="post">
 					<button type="submit" name="action" value="submit"
 						class="bg-gray-200 
                 rounded-md py-1 px-3 

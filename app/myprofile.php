@@ -54,14 +54,14 @@ body {
 					History</a></li>
 			<li class="nav-item"><a class="nav-link active">My
 					Profile </a></li>
-			<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+			<li class="nav-item"><a class="nav-link" href="controller/logout.php">Logout</a></li>
 		</ul>
 	</nav>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
 
-				<a href=change-password.php>
+				<a href=controller/change-password.php>
 					<h5>
 						<div class="text-gray-900 hover:text-gray-100">Change Password</div>
 					</h5>

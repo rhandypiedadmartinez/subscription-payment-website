@@ -2,7 +2,7 @@
 session_start();
 $current_user = $_SESSION["login"];
 $isAdmin = $_SESSION["isAdmin"];
-include ("config.php");
+include ("../config.php");
 
 $sql1 = "SELECT * FROM persons where email='$current_user'";
 if ($result = mysqli_query($mysqli, $sql1)) {
@@ -24,7 +24,7 @@ if ($result = mysqli_query($mysqli, $sql1)) {
 
 echo '<br>wallet: ' . $e_wallet . '<br>spotify: ' . $spotify . '<br>discord: ' . $discord . '<br>ph: ' . $ph . '<br>';
 
-if (isset($_POST['spotify'])) {
+if (isset($_POST['Spotify'])) {
     if ($e_wallet >= $spotify) {
         $sql = "UPDATE persons SET e_wallet=e_wallet-spotify_bill, spotify_bill=spotify_bill-spotify_bill WHERE email='$current_user'";
     }
@@ -36,7 +36,7 @@ if (isset($_POST['spotify'])) {
     $mysqli->close();
 }
 
-if (isset($_POST['discord'])) {
+if (isset($_POST['Discord'])) {
     if ($e_wallet >= $discord) {
         $sql = "UPDATE persons SET e_wallet=e_wallet-discord_nitro_bill, discord_nitro_bill=discord_nitro_bill-discord_nitro_bill WHERE email='$current_user'";
         if ($mysqli->query($sql) === TRUE) {
@@ -48,7 +48,7 @@ if (isset($_POST['discord'])) {
     }
 }
 
-if (isset($_POST['ph'])) {
+if (isset($_POST['PhilHealth'])) {
     if ($e_wallet >= $ph) {
         $sql = "UPDATE persons SET e_wallet=e_wallet-ph_premium_bill, ph_premium_bill=ph_premium_bill-ph_premium_bill WHERE email='$current_user'";
         if ($mysqli->query($sql) === TRUE) {
@@ -61,9 +61,9 @@ if (isset($_POST['ph'])) {
 }
 
 if ($isAdmin == "true") {
-    header("location: admin-page.php");
+    header("location: ../admin-page.php");
 } else {
-    header("location: index.php");
+    header("location: ../index.php");
 }
 
 ?>

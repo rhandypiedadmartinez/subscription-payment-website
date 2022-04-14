@@ -49,7 +49,7 @@ body {
 					History</a></li>
 			<li class="nav-item"><a class="nav-link" href="myprofile.php">My
 					Profile </a></li>
-			<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+			<li class="nav-item"><a class="nav-link" href="controller/logout.php">Logout</a></li>
 		</ul>
 	</nav>
 	<div class="container">

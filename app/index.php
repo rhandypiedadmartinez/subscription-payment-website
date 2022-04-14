@@ -3,10 +3,28 @@ session_start();
 if (! isset($_SESSION["login"]))
     header("location:login.php");
 $current_user = $_SESSION["login"];
-include ("config.php");
 
+include ("config.php");
+include ("model/get-billers-list.php"); // creates array of all billers and details
+include ("model/mybills.php"); // creates array of bills object
+
+if ($mysqli === false) {
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+$sql = "SELECT e_wallet FROM persons where email='$current_user'";
+if ($result = mysqli_query($mysqli, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            $e_wallet = $row['e_wallet'];
+        }
+        // Free result set
+        mysqli_free_result($result);
+    }
+}
 // Close connection
 // mysqli_close($mysqli);
+
 ?>
 
 <!DOCTYPE html>
@@ -39,96 +57,41 @@ include ("config.php");
 					History</a></li>
 			<li class="nav-item"><a class="nav-link" href="myprofile.php">My
 					Profile</a></li>
-			<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+			<li class="nav-item"><a class="nav-link" href="controller/logout.php">Logout</a></li>
 		</ul>
 	</nav>
-	<?php
 
-// Check connection
-if ($mysqli === false) {
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
-
-// Attempt select query execution
-$sql = "SELECT * FROM persons where email='$current_user'";
-if ($result = mysqli_query($mysqli, $sql)) {
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_array($result)) {
-            $e_wallet = $row['e_wallet'];
-            $spotify_bill = $row['spotify_bill'];
-            $discord_nitro_bill = $row['discord_nitro_bill'];
-            $ph_premium_bill = $row['ph_premium_bill'];
-        }
-        // Free result set
-        mysqli_free_result($result);
-    } else {
-        echo "No records matching your query were found.";
-    }
-} else {
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
-}
-
-?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12 text-lg">
-				<div>
+				<div class="font-bold">
 					Current user: 
-					<span class="font-bold">
 						<?php echo $current_user; ?>
-					</span> 
 				</div>
-				<div>
-					Cash from E-Wallet: 
-					<span class="font-bold">
+				<div class="font-bold">
+					Cash from E-Wallet:
 						<?php echo $e_wallet; ?>
-					</span>
 				</div>
 			</div>
 
-			<div class="card">
-				<img class="card-img-top"
-					src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-download-logo-30.png"
-					alt="Card image" style="width: 100%">
-				<div class="card-body">
-					<h4 class="card-title">Spotify Bill Details</h4>
-					<p class="card-text">Amount: Php <?php echo $spotify_bill?></p>
-					<p class="card-text">Due date: April 31, 2022</p>
-
-					<form action="test-pay.php" method="post">
-						<button type="submit" name="spotify" value="submit" class="bg-gray-200 hover:bg-gray-400">Pay</button>
-					</form>
-				</div>
-			</div>
-
-			<div class="card">
-				<img class="card-img-top"
-					src="https://www.freepnglogos.com/uploads/discord-logo-png/discord-logo-logodownload-download-logotipos-1.png"
-					alt="Card image" style="width: 100%">
-				<div class="card-body">
-					<h4 class="card-title">Discord Nitro Bill</h4>
-					<p class="card-text">Amount: Php <?php echo $discord_nitro_bill?></p>
-					<p class="card-text">Due date: March 5, 2022</p>
-					<form action="test-pay.php" method="post">
-						<button type="submit" name="discord" value="submit" class="bg-gray-200 hover:bg-gray-400">Pay</button>
-					</form>
-				</div>
-			</div>
-
-			<div class="card">
-				<img class="card-img-top"
-					src="https://www.philhealth.gov.ph/news/2019/images/phic_logov.jpg"
-					alt="Card image" style="width: 100%">
-				<div class="card-body">
-					<h4 class="card-title">PhilHealth Premium Insurance</h4>
-					<p class="card-text">Amount: Php <?php echo $ph_premium_bill?></p>
-					<p class="card-text">Due date: March 5, 2022</p>
-					<form action="test-pay.php" method="post">
-						<button type="submit" name="ph" value="submit" class="bg-gray-200 hover:bg-gray-400">Pay</button>
-					</form>
-				</div>
-			</div>
-
+				<?php 
+				foreach ($bills as $bill) {
+				echo '<div class="card">
+        				<img class="card-img-top"
+        					src="'.$bill->ref.'"
+        					alt="Card image" style="width: 100%">
+        				<div class="card-body">
+        					<h4 class="card-title">' . $bill->billername . ' </h4>
+        					<p class="card-text">Amount: Php  '. $bill->amount .'</p>
+        					<p class="card-text">Due date: March 5, 2022</p>
+        					<form action="controller/test-pay.php" method="post">
+        						<button type="submit" name="ph" value="submit"
+        							class="bg-gray-200 hover:bg-gray-400">Pay</button>
+        					</form>
+        				</div>
+        			</div>';
+        		}
+				?>
 		</div>
 	</div>
 

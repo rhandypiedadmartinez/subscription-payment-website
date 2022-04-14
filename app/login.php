@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +52,7 @@ tailwind.config = {
 			</span>
 		</div>
 		<div class="center">
-			<form action="loginprocess.php" method="POST" class="form-container bg-[#172529] rounded-xl font-weight-bold p-4">
+			<form action="controller/loginprocess.php" method="POST" class="form-container bg-[#172529] rounded-xl font-weight-bold p-4">
 
 				<div style class="fw-bold text-2xl mb-1">Login</div>
 
