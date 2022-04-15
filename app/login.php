@@ -17,19 +17,7 @@
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<script>
-tailwind.config = {
-	theme: {
-		fontFamily: {
-			poppins: ['Poppins']
-		},
-		screens: {
-			'sm': '360px',
-			'md': '600px'
-		}
-	}
-}
-</script>
+<script src="tailwind.config.js"></script>
 
 <!-- jQuery -->
 <script
@@ -49,13 +37,13 @@ tailwind.config = {
 	crossorigin="anonymous">
 
 <title>Payoda</title>
-<link rel="stylesheet" href="./static/css/login.css">
+<link rel="stylesheet" href="./css/login.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');	
 </style>
 
 </head>
-<body class="sm:items-center md:items-start md:mt-20 justify-center flex font-poppins">
+<body class="mt-20 justify-center flex font-poppins lg:overflow-hidden">
 	<div>
 		<div class="center">
 			<span class="text-7xl mb-12"> <b>Pay</b>oda
@@ -77,17 +65,16 @@ tailwind.config = {
 
 				<label class="ml-12 pt-3">
 					<?php
-    if (isset($_REQUEST["err"]))
-        $msg = "Invalid username or Password";
-    ?>
-						<h5 class="text-red-500">
-						<?php
+				    if (isset($_REQUEST["err"]))
+				        $msg = "Invalid username or Password";
+				    ?>
+										<h5 class="text-red-500">
+										<?php
 
-    if (isset($msg)) {
-        echo $msg;
-    }
-    ?>
-				
+				    if (isset($msg)) {
+				        echo $msg;
+				    }
+				    ?>
 				
 				</label>
 

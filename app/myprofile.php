@@ -36,6 +36,8 @@ mysqli_close($mysqli);
 	echo " - My Profile";
 	?>
 </title>
+<link rel="stylesheet" href="./css/font.css">
+<script src="tailwind.config.js"></script>
 <style>
 body {
 	scroll-behavior: smooth;
@@ -45,7 +47,7 @@ body {
 }
 </style>
 </head>
-<body>
+<body class="font-poppins">
 	<nav
 		class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-center">
 		<ul class="navbar-nav">

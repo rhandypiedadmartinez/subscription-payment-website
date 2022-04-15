@@ -23,6 +23,8 @@ mysqli_close($mysqli);
 
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="./css/font.css">
+<script src="tailwind.config.js"></script>
 
 <link rel="manifest" href="manifest.json" />
 <meta charset="UTF-8" />
@@ -40,7 +42,7 @@ body {
 }
 </style>
 </head>
-<body>
+<body class="font-poppins">
 	<nav
 		class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-center">
 		<ul class="navbar-nav">

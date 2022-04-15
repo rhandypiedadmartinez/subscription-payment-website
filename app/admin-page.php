@@ -31,6 +31,8 @@ if ($mysqli === false) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
+<link rel="stylesheet" href="./css/font.css">
+<script src="tailwind.config.js"></script>
 <style>
 body {
 	scroll-behavior: smooth;
@@ -59,7 +61,7 @@ a {
 </style>
 <title>Shop</title>
 </head>
-<body>
+<body class="font-poppins">
 	<nav
 		class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-center">
 		<ul class="navbar-nav">

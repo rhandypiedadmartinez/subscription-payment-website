@@ -42,19 +42,8 @@ if ($result = mysqli_query($mysqli, $sql)) {
 
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-	theme: {
-		fontFamily: {
-			poppins: ['Poppins']
-		},
-		extend: {
-			colors: {},
-			screens: {}
-		}
-	}
-}
-</script>
+
+<script src="tailwind.config.js"></script>
 
 <link rel="manifest" href="manifest.json" />
 <meta charset="UTF-8" />
@@ -63,7 +52,7 @@ tailwind.config = {
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
 <title>Payoda</title>
-<link rel="stylesheet" href="./static/css/index.css">
+<link rel="stylesheet" href="./css/index.css">
 </head>
 <body class="font-poppins">
 	<div>
