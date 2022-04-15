@@ -18,10 +18,9 @@ if ($result = mysqli_query($mysqli, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
             $_SESSION["e_wallet"] = $row['e_wallet'];
-            $profile_pic= $row['profile_pic'];
+            $profile_pic = $row['profile_pic'];
             $fname = $row['first_name'];
             $lname = $row['last_name'];
-            
         }
         // Free result set
         mysqli_free_result($result);
@@ -69,17 +68,12 @@ if ($result = mysqli_query($mysqli, $sql)) {
 	<div class="container" style="margin-left: 100px">
 		<div class="row">
 			<div class="card">
-				<img class="card-img-top"
-					src="<?php echo $profile_pic?>" alt="Card image"
-					style="width: 100%">
+				<img class="card-img-top" src="<?php echo $profile_pic?>"
+					alt="Card image" style="width: 100%">
 				<div class="card-body">
 					<h4 class="card-title"> <?php echo $fname.' '.$lname;?> </h4>
 					<h4 class="card-title"> Email: <?php echo $current_user;?> </h4>
 					<p class="card-text">E-Wallet: Php <?php echo $_SESSION["e_wallet"]; ?></p>
-					<form action="controller/test-pay.php" method="post">
-						<button type="submit" name="'.$bill->billername.'" value="submit"
-							class="bg-gray-200 hover:bg-gray-400">Pay</button>
-					</form>
 				</div>
 			</div>
 				<?php
@@ -89,16 +83,21 @@ if ($result = mysqli_query($mysqli, $sql)) {
         					src="' . $bill->ref . '"
         					alt="Card image" style="width: 100%">
         				<div class="card-body">
-        					<h4 class="card-title">' . $bill->billername . ' </h4>
-        					<p class="card-text">Amount: Php  ' . $bill->amount . '</p>
-        					<p class="card-text">Due date: March 5, 2022</p>
-        					<form action="controller/test-pay.php" method="post">
+        					<h4 class="card-title">' . $bill->billername . ' Subscription</h4>';
+                            
+        if ($bill->amount == 0) {
+            echo '<h4 class="card-text"> Status: Fully Paid</h4>';
+        } else {
+            echo '<p class="card-text">Amount: Php  ' . $bill->amount . '</p>
+        					<p class="card-text">Due date: March 5, 2022</p>';
+            echo '<form action="controller/test-pay.php" method="post">
         						<button type="submit" name="' . $bill->billername . '" value="submit"
         							class="bg-gray-200 hover:bg-gray-400">Pay</button>
-        					</form>
-        				</div>
-        			</div>';
+        					</form>';
+        }
+        echo '</div></div>';
     }
+
     ?>
 		</div>
 	</div>
