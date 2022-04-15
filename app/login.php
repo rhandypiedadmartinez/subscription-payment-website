@@ -20,6 +20,9 @@
 <script>
 tailwind.config = {
 	theme: {
+		fontFamily: {
+			poppins: ['Poppins']
+		},
 		screens: {
 			'sm': '360px',
 			'md': '600px'
@@ -47,18 +50,20 @@ tailwind.config = {
 
 <title>Payoda</title>
 <link rel="stylesheet" href="./static/css/login.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');	
+</style>
 
 </head>
-<body
-	class="sm:items-center md:items-start md:mt-20 justify-center flex">
+<body class="sm:items-center md:items-start md:mt-20 justify-center flex font-poppins">
 	<div>
 		<div class="center">
-			<span style="font-family: serif;" class="text-7xl mb-12"> <b>Pay</b>oda
+			<span class="text-7xl mb-12"> <b>Pay</b>oda
 			</span>
 		</div>
 		<div class="center">
 			<form action="controller/loginprocess.php" method="POST"
-				class="form-container bg-[#172529] rounded-xl font-weight-bold p-4">
+				class="form-container bg-[#172529] rounded-xl font-weight-medium p-4">
 
 				<div style class="fw-bold text-2xl mb-1">Login</div>
 

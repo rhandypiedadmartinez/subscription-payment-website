@@ -42,6 +42,19 @@ if ($result = mysqli_query($mysqli, $sql)) {
 
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+	theme: {
+		fontFamily: {
+			poppins: ['Poppins']
+		},
+		extend: {
+			colors: {},
+			screens: {}
+		}
+	}
+}
+</script>
 
 <link rel="manifest" href="manifest.json" />
 <meta charset="UTF-8" />
@@ -52,23 +65,25 @@ if ($result = mysqli_query($mysqli, $sql)) {
 <title>Payoda</title>
 <link rel="stylesheet" href="./static/css/index.css">
 </head>
-<body>
-	<nav
-		class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
-		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link active">Pay Bills</a></li>
-			<li class="nav-item"><a class="nav-link" href="payment-history.php">Payment
-					History</a></li>
-			<li class="nav-item"><a class="nav-link" href="myprofile.php">My
-					Profile</a></li>
-			<li class="nav-item"><a class="nav-link" href="controller/logout.php">Logout</a></li>
-		</ul>
-	</nav>
+<body class="font-poppins">
+	<div>
+		<nav
+			class="navbar navbar-expand-lg bg-dark navbar-dark justify-content-center">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link active">Pay Bills</a></li>
+				<li class="nav-item"><a class="nav-link" href="payment-history.php">Payment
+						History</a></li>
+				<li class="nav-item"><a class="nav-link" href="myprofile.php">My
+						Profile</a></li>
+				<li class="nav-item"><a class="nav-link" href="controller/logout.php">Logout</a></li>
+			</ul>
+		</nav>
+	</div>
 
-	<div class="container" style="margin-left: 100px">
-		<div class="row">
-			<div class="card">
-				<img class="card-img-top" src="<?php echo $profile_pic?>"
+	<div class="container">
+		<div class="row justify-center">
+			<div class="card p-3">
+				<img class="card-img-top my-3" src="<?php echo $profile_pic?>"
 					alt="Card image" style="width: 100%">
 				<div class="card-body">
 					<h4 class="card-title"> <?php echo $fname.' '.$lname;?> </h4>
@@ -78,8 +93,8 @@ if ($result = mysqli_query($mysqli, $sql)) {
 			</div>
 				<?php
     foreach ($bills as $bill) {
-        echo '<div class="card">
-        				<img class="card-img-top"
+        echo '<div class="card p-3">
+        				<img class="my-3 card-img-top"
         					src="' . $bill->ref . '"
         					alt="Card image" style="width: 100%">
         				<div class="card-body">

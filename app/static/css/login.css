@@ -1,10 +1,4 @@
-/*body {
-	font-family: Arial, Helvetica, sans-serif;
 
-	yung sa login font monospace tas sa Payoda serif
-	kaya walang mangyayari dito HAHAHA
-	XDDD mb mb
-}*/
 
 * {
 	box-sizing: border-box;
@@ -14,7 +8,7 @@ body, html {
 	scroll-behavior: smooth;
 	height: 100%;
 	background: #3AAFA9;
-	font-family: monospace;
+	/*font-family: monospace;*/
 	color: #FEFFFF;
 	/* For browsers that do not support gradients */
 	background-image: linear-gradient(270deg, #172529, 20%, #3AAFA9);
