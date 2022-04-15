@@ -91,6 +91,8 @@ tailwind.config = {
 
 		</div>
 		<br>
+		
+	<center><a href="setdb.php">setup/reset db</a></center>
 	</div>
 	</div>
 </body>
