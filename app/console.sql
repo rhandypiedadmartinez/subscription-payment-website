@@ -1,6 +1,6 @@
 
 CREATE TABLE `persons` (
-  `id` int(11) NOT NULL,
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
   `first_name` varchar(64) DEFAULT NULL,
   `last_name` varchar(64) DEFAULT NULL,
   `email` varchar(256) DEFAULT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE `persons` (
   `ph_premium_bill` int(11) DEFAULT NULL,
   `netflix_bill` int(11) DEFAULT NULL,
   `yt_premium_bill` int(11) DEFAULT NULL,
-  `profile_pic` text NOT NULL
+  `profile_pic` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -36,4 +36,3 @@ INSERT INTO `biller_list` (`billerID`, `biller_bill_name`, `biller_name`, `ref`)
 (2, 'ph_premium_bill', 'PhilHealth', 'https://www.philhealth.gov.ph/news/2019/images/phic_logov.jpg'),
 (3, 'netflix_bill', 'Netflix', 'https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png'),
 (4, 'yt_premium_bill', 'Youtube', 'https://assets.turbologo.com/blog/en/2019/10/19084944/youtube-logo-illustration.jpg');
-

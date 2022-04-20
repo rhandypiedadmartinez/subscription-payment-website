@@ -39,53 +39,49 @@
 <title>Payoda</title>
 <link rel="stylesheet" href="./css/login.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');	
+@import
+	url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+	;
 </style>
 
 </head>
-<body class="mt-20 justify-center flex font-poppins lg:overflow-hidden">
+<body class="mt-6 justify-center flex font-poppins lg:overflow-hidden">
 	<div>
 		<div class="center">
-			<span class="text-7xl mb-12"> <b>Pay</b>oda
+			<span class="text-7xl mb-6"> <b>Pay</b>oda
 			</span>
 		</div>
 		<div class="center">
 			<form action="controller/loginprocess.php" method="POST"
 				class="form-container bg-[#172529] rounded-xl font-weight-medium p-4">
 
-				<div style class="fw-bold text-2xl mb-1">Login</div>
+				<div class="fw-bold text-2xl mb-1">Login</div>
 
-				<label for="email"> <b>Email</b>
-				</label> <input type="text" placeholder="Enter Email" name="uname"
-					required> <label for="psw"> <b>Password</b>
+				<label for="lbl_email"> <b>Email</b>
+				</label> <input type="text" placeholder="Enter Email" name="email"
+					required> <label for="lbl_password"> <b>Password</b>
 				</label> <input type="password" placeholder="Enter Password"
-					name="upassword" required>
+					name="password" required>
 
 				<button type="submit" value="Login" name="sub" class="btn">Login</button>
 
+				<span class="center" style="margin-top: 15px; font-size: 12px; opacity:0.8;">Account not yet created?</span>
+
+				<a style="margin: 10px auto;" href="registration-page.php" class="btn">Register</a>
+
 				<label class="ml-12 pt-3">
 					<?php
-				    if (isset($_REQUEST["err"]))
-				        $msg = "Invalid username or Password";
-				    ?>
-										<h5 class="text-red-500">
-										<?php
-
-				    if (isset($msg)) {
-				        echo $msg;
-				    }
-				    ?>
-				
+                    if (isset($_REQUEST["err"]))
+                        $msg = "Invalid username or Password";
+                    if (isset($msg)) {
+                        echo '<h5 class="text-red-500">'.$msg.'</h5>';
+                    }
+                    ?>
 				</label>
-
-				</h5>
 			</form>
-
 		</div>
-		<br>
-		
-	<center><a href="setdb.php">setup/reset db</a></center>
-	</div>
+		<a href="setdb.php" class="center">setup/reset db</a>
+
 	</div>
 </body>
 </html>

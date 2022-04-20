@@ -47,65 +47,48 @@
 </head>
 <body>
 	<div>
-		<div class="mt-20 flex font-poppins lg:overflow-hidden  center">
-			<div class="col-md-4">
-				<form action="controller/registerprocess.php" method="POST"
+		<div class="mt-4 flex font-poppins lg:overflow-hidden center">
+			<div class="col-md-12 center">
+				<form action="controller/registrationprocess.php" method="POST"
 					class="form-container bg-[#172529] rounded-xl font-weight-medium p-4">
 
-					<div style class="fw-bold text-2xl mb-1">Registration</div>
+					<div class="fw-bold text-2xl mb-1">Registration</div>
 
-					<label for="fname"> <b>First Name</b>
+					<select class="btn opt" style="background-color:#feffff" required>
+						<option value="" selected disabled value="">Choose Account Type</option>
+						<option value="customer">Customer Account</option>
+						<option value="biller" disabled>Biller Account</option>
+					</select> <label for="lbl_fname"> <b>First Name</b>
 					</label> <input type="text" placeholder="Enter Firstname"
-						name="fname" required> <label for="lname"> <b>Last Name</b>
+						name="fname" required> <label for="lbl_lname"> <b>Last Name</b>
 					</label> <input type="text" placeholder="Enter Password"
-						name="lname" required> </label> <label for="email"> <b>Email</b>
-					</label> <input type="text" name="email" placeholder="Enter Email"
-						required> <label class="ml-12 pt-3">
-    					<?php
-        if (isset($_REQUEST["err"]))
-            $msg = "Invalid username or Password";
-        ?>
-    					<h5 class="text-red-500">
-    					<?php
-
-        if (isset($msg)) {
-            echo $msg;
-        }
-        ?>
-    				
-    				
+						name="lname" required>
 					
+					<label for="lbl_email"> <b>Email</b>
+					</label> <input type="text" placeholder="Enter Email" name="email"
+						required> 
+
+					<button type="submit" value="Register" name="sub" class="btn">Proceed ></button>
+
+
+					<label class="ml-12 pt-3">
+					
+    					<?php
+                        if (isset($_REQUEST["err"]))
+                            $msg = "Account already exists";
+                
+                        if (isset($msg)) {
+                            echo '<h5 class="text-red-500">' . $msg . '</h5></span>';
+                        }
+                        ?>
+                    			
 					</label>
 
-					</h5>
 				</form>
-			</div>
-			<div class="col-md-4">
-				<form action="controller/loginprocess.php" method="POST"
-					class="form-container bg-[#172529] rounded-xl font-weight-medium p-4">
-					<label for="password"> <b>Set up Password</b>
-					</label> <input type="password" placeholder="Enter Password"
-						name="password" required> </label> <label
-						for="password_verification"> <b>Verify Password</b>
-					
-					</label> 
-					<input type="password" placeholder="Re-enter Password"
-						name="password" required> </label> 
-					
-					<select>
-						<option value="blank">Choose Account Type</option>
-						<option value="customer">Customer</option>
-						<option value="biller">Biller</option>
-					</select>
 
-					<button type="submit" value="Register" name="submit_regform"
-						class="btn">Register</button>
-					</h5>
-				</form>
 			</div>
 		</div>
 		<br>
-	</div>
 	</div>
 </body>
 </html>

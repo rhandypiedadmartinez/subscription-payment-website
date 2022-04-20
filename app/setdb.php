@@ -16,7 +16,6 @@ $mysqli->query('SET foreign_key_checks = 1');
 $sql2 = file_get_contents('console.sql');
 /* execute multi query */
 $mysqli->multi_query($sql2);
-
 header("location: ../login.php");
 ?>
 
