@@ -22,5 +22,10 @@ to run server and mysql:
 `sudo docker exec -ti (id/name) mysql -uroot`
 
 
-
+--------- Run on Windows ---------------
+1. Install Docker Desktop
+2. Enable WSL or Windows Subsystem Linux
+3. Run this command: `docker run -p 8006:80 -p 33061:3306 -v %cd%/app:/app -v %cd%/mysql:/var/lib/mysql subscription-payment-website`
+4. http://localhost:8006 and it will redirect to login.php
+5. Enjoy.
 
