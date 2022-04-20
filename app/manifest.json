@@ -3,7 +3,7 @@
   "name": "Subscription Payment Website",
   "start_url": ".",
   "description": "A subscription payment website",
-  "orientation": "landscape",
+  "orientation": "any",
   "dir": "auto",
   "lang": "en-PH",
   "categories": ["subscription","payment","website"]

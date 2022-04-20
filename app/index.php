@@ -3,62 +3,45 @@ session_start();
 if (! isset($_SESSION["login"]))
     header("location:login.php");
 $current_user = $_SESSION["login"];
-echo 'isAdmin ' . $_SESSION['isAdmin'];
-include ("config.php");
+$_SESSION["e_wallet"];
 
-// Check connection
-if ($mysqli === false) {
+include ("config.php");
+include ("model/get-billers-list.php"); // creates array of all billers and details
+include ("model/mybills.php"); // creates array of bills object
+
+if ($mysqli == false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-// Attempt select query execution
-$sql = "SELECT * FROM persons where email='$current_user'";
+$sql = "SELECT first_name,last_name,e_wallet, profile_pic FROM persons where email='$current_user'";
 if ($result = mysqli_query($mysqli, $sql)) {
     if (mysqli_num_rows($result) > 0) {
-        echo "<div class='container flex'>";
-        echo "<table>";
-        echo "<tr>";
-        echo "<th>id</th>";
-        echo "<th>first_name </th>";
-        echo "<th>e-wallet</th>";
-        echo "<th>spotify bill:</th>";
-        echo "<th>discord nitro </th>";
-        echo "<th>ph premium bill </th>";
-        echo "</tr>";
         while ($row = mysqli_fetch_array($result)) {
-            echo "<tr>";
-            echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['first_name'] . "</td>";
-            echo "<td>" . $row['e_wallet'] . "</td>";
-            echo "<td>" . $row['spotify_bill'] . "</td>";
-            echo "<td>" . $row['discord_nitro_bill'] . "</td>";
-            echo "<td>" . $row['ph_premium_bill'] . "</td>";
-            echo "</tr>";
+            $_SESSION["e_wallet"] = $row['e_wallet'];
+            $profile_pic = $row['profile_pic'];
+            $fname = $row['first_name'];
+            $lname = $row['last_name'];
         }
-        echo "</table>";
-        echo "</div>";
         // Free result set
         mysqli_free_result($result);
-    } else {
-        echo "No records matching your query were found.";
     }
-} else {
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
 }
-
 // Close connection
-mysqli_close($mysqli);
+// mysqli_close($mysqli);
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>    
+<head>
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
+
+<script src="tailwind.config.js"></script>
 
 <link rel="manifest" href="manifest.json" />
 <meta charset="UTF-8" />
@@ -66,58 +49,60 @@ mysqli_close($mysqli);
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
-<title>Shop</title>
-<style>
-a {
-    text-decoration: none;
-}
-table {
-    border: 1px solid black;
-}
-th {padding: 8px; border: 1px solid black;}
-td {padding: 8px; border: 1px solid black;}
-
-/* nakakatamad na lagyan ng Tailwind classes ung mga buttons
-kaya pure css nlng:)
-*/
- 
-button[type="submit"] {
-    background-color: #e5e7eb;
-    border: 1px solid #475569;
-    padding: 4px 12px 4px 12px;
-    border-radius: 0.375rem;
-}
-[type="submit"]:hover {
-    background-color: #d1d5db;
-}
-
-</style>
+<title>Payoda</title>
+<link rel="stylesheet" href="./css/index.css">
 </head>
-<body>
-	<br>
-	<div class="container">
-		<br>Current user: <?php echo $current_user; ?> 
-		<br> <label> Cash from E-Wallet: </label> <br> <label> My
-			Subscriptions (to-pay): </label> <br>
-
-		<form action="test-pay.php" method="post">
-			<label> Spotify: </label>
-			<button type="submit" name="spotify" value="submit">Pay</button>
-			<br> <label> Discord Nitro: </label>
-
-			<button type="submit" name="discord" value="submit">Pay</button>
-			<br> <label> PH Premium: </label>
-			<button type="submit" name="ph" value="submit">Pay</button>
-		</form>
-		<a href="logout.php">
-			<h5>
-				<div class="text-red-600 hover:text-red-700">Logout</div>
-			</h5>
-		</a> <a href=change-password.php>
-			<h5>
-				<div class="text-green-600 hover:text-green-700">Change Password</div>
-			</h5>  
-		</a>
+<body class="font-poppins">
+	<div>
+		<nav
+			class="navbar navbar-expand-lg bg-dark navbar-dark justify-content-center">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link active">Pay Bills</a></li>
+				<li class="nav-item"><a class="nav-link" href="payment-history.php">Payment
+						History</a></li>
+				<li class="nav-item"><a class="nav-link" href="myprofile.php">My
+						Profile</a></li>
+				<li class="nav-item"><a class="nav-link" href="controller/logout.php">Logout</a></li>
+			</ul>
+		</nav>
 	</div>
+
+	<div class="container">
+		<div class="row justify-center">
+			<div class="card p-3">
+				<img class="card-img-top my-3" src="<?php echo $profile_pic?>"
+					alt="Card image" style="width: 100%">
+				<div class="card-body">
+					<h4 class="card-title"> <?php echo $fname.' '.$lname;?> </h4>
+					<h4 class="card-title"> Email: <?php echo $current_user;?> </h4>
+					<p class="card-text">E-Wallet: Php <?php echo $_SESSION["e_wallet"]; ?></p>
+				</div>
+			</div>
+				<?php
+    foreach ($bills as $bill) {
+        echo '<div class="card p-3">
+        				<img class="my-3 card-img-top"
+        					src="' . $bill->ref . '"
+        					alt="Card image" style="width: 100%">
+        				<div class="card-body">
+        					<h4 class="card-title">' . $bill->billername . ' Subscription</h4>';
+                            
+        if ($bill->amount == 0) {
+            echo '<h4 class="card-text"> Status: Fully Paid</h4>';
+        } else {
+            echo '<p class="card-text">Amount: Php  ' . $bill->amount . '</p>
+        					<p class="card-text">Due date: March 5, 2022</p>';
+            echo '<form action="controller/test-pay.php" method="post">
+        						<button type="submit" name="' . $bill->billername . '" value="submit"
+        							class="bg-gray-200 hover:bg-gray-400">Pay</button>
+        					</form>';
+        }
+        echo '</div></div>';
+    }
+
+    ?>
+		</div>
+	</div>
+
 </body>
 </html>
