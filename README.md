@@ -23,7 +23,8 @@ to run server and mysql:
 2. Install Docker Desktop
 3. Enable WSL or Windows Subsystem Linux
 4. Open Git Bash
-5. Change directory to this folder then type `./run-lamp-container.sh` 
-6. Run this command: `docker build -t subscription-payment-website . && docker run -p 8006:80 -p 33061:3306 -v %cd%/app:/app -v %cd%/mysql:/var/lib/mysql subscription-payment-website`
-7. http://localhost:8006 and it will redirect to login.php
-8. Enjoy.
+5. Change directory to this folder then type `./run-lamp-container.sh`
+6. After installation of container, press **Ctrl+C** to exit and open Command Prompt 
+7. Change directory to project folder and run this command: `docker build -t subscription-payment-website . && docker run -p 8006:80 -p 33061:3306 -v %cd%/app:/app -v %cd%/mysql:/var/lib/mysql subscription-payment-website` (This container will appear on your Docker Desktop)
+8. http://localhost:8006 and it will redirect to login.php
+9. Enjoy.
