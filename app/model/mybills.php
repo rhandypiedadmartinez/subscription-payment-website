@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 include ("config.php");
@@ -34,7 +34,7 @@ foreach ($billers as $biller) {
             while ($row = mysqli_fetch_array($result)) {
                 if ($row[$biller->bill_name] != - 1) {
                     array_push($bills, new bill($biller->billername, $row[$biller->bill_name], $billers[$i]->ref, $billers[$i]->bill_name));
-      //              echo $biller->billername.$row[$biller->bill_name].$billers[$i]->ref.$billers[$i]->bill_name.'<br>';
+                    //              echo $biller->billername.$row[$biller->bill_name].$billers[$i]->ref.$billers[$i]->bill_name.'<br>';
                 }
                 $i ++;
             }

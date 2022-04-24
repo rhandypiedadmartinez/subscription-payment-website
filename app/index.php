@@ -71,7 +71,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
 		<div class="row justify-center">
 			<div class="card p-3">
 				<img class="card-img-top my-3" src="<?php echo $profile_pic?>"
-					alt="Card image" style="width: 100%">
+					 style="width: 100%">
 				<div class="card-body">
 					<h4 class="card-title"> <?php echo $fname.' '.$lname;?> </h4>
 					<h4 class="card-title"> Email: <?php echo $current_user;?> </h4>

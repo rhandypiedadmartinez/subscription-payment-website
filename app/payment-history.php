@@ -3,13 +3,14 @@ session_start();
 if (! isset($_SESSION["login"]))
     header("location:login.php");
 $current_user = $_SESSION["login"];
+
+$myID = $_SESSION["userID"];
 include ("config.php");
 
 // Check connection
 if ($mysqli === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-mysqli_close($mysqli);
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +33,7 @@ mysqli_close($mysqli);
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
+
 <title>Shop</title>
 <style>
 body {
@@ -40,6 +42,41 @@ body {
 	background: #3AAFA9;
 	padding-top: 80px;
 }
+
+#custom_table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #DEF2F1;
+  border-radius: 10px;
+  box-shadow: 0 0 0 10px #DEF2F1; /* this draws the table border  */ 
+}
+
+#custom_table td, #custom_table th {
+  border: 1px solid #172529;
+  padding: 8px;
+}
+
+#custom_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #172529;
+  color: #feffff;
+  text-align: center;
+}
+
+
+
+/*
+	color pallette
+	background: #172529;
+	background: #2B7A78;
+	background: #3AAFA9;
+	background: #DEF2F1;
+	background: #FEFFFF;
+*/
+
 </style>
 </head>
 <body class="font-poppins">
@@ -57,7 +94,39 @@ body {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
+				  	<?php
 
+                    // Attempt select query execution
+                    $sql = "SELECT * FROM billing_history where customer_id='$myID'";
+                    if ($result = mysqli_query($mysqli, $sql)) {
+                        if (mysqli_num_rows($result) > 0) {
+                            echo "<div class='container'>";
+                            echo "<table id='custom_table'>";
+                            echo "<tr>";
+                            echo "<th>Timestamp</th>";
+                            echo "<th>Subscription Paid</th>";
+                            echo "<th>Amount Paid </th>";
+
+                            echo "</tr>";
+                            while ($row = mysqli_fetch_array($result)) {
+                                echo "<tr>";
+                                echo "<td>" . $row['payment_timestamp'] . "</td>";
+                                echo "<td>" . $row['subscription_paid'] . "</td>";
+                                echo "<td>" . $row['amount_paid'] . "</td>";
+                                echo "</tr>";
+                            }
+                            echo "</table>";
+                            echo "</div>";
+                            // Free result set
+                            mysqli_free_result($result);
+                        } else {
+                            echo "You have not paid any subscription yet.";
+                        }
+                    } else {
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+                    }
+
+                    ?>
 			</div>
 		</div>
 	</div>

@@ -11,8 +11,8 @@ if (isset($_REQUEST['sub'])) {
     } else {
         $res = mysqli_query($mysqli, "select * from persons where email='$email' and sha1_password = sha1('$password')");
         $result = mysqli_fetch_array($res);
-        print_r($result);
         if ($result) {
+            $_SESSION['userID'] = $result['id'];
             $_SESSION["login"] = $email;
             $_SESSION["isAdmin"] = "false";
             header("location:../index.php");

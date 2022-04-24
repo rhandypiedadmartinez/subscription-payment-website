@@ -91,13 +91,13 @@ include ("../config.php");
 					<label class="ml-12 pt-3">
                     	
     					<?php
-        if (isset($_REQUEST["err"]))
-            $msg = "Password does not match";
-
-        if (isset($msg)) {
-            echo '<h5 class="text-red-500">' . $msg . '</h5></span>';
-        }
-        ?>
+                        if (isset($_REQUEST["err"]))
+                            $msg = "Password does not match";
+                
+                        if (isset($msg)) {
+                            echo '<h5 class="text-red-500">' . $msg . '</h5></span>';
+                        }
+                        ?>
 					</label>
 				</form>
 			</div>

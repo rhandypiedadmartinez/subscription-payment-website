@@ -1,3 +1,13 @@
+CREATE TABLE `billing_history` (
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
+  `customer_id` INT DEFAULT NULL,
+  `customer_name` varchar(64) DEFAULT NULL,
+  `subscription_paid` varchar(64) DEFAULT NULL, 
+  `amount_paid` INT DEFAULT NULL,
+  `payment_timestamp` varchar(64) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 
 CREATE TABLE `persons` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,

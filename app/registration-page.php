@@ -59,9 +59,9 @@
 						<option value="customer">Customer Account</option>
 						<option value="biller" disabled>Biller Account</option>
 					</select> <label for="lbl_fname"> <b>First Name</b>
-					</label> <input type="text" placeholder="Enter Firstname"
+					</label> <input type="text" placeholder="Enter First name"
 						name="fname" required> <label for="lbl_lname"> <b>Last Name</b>
-					</label> <input type="text" placeholder="Enter Password"
+					</label> <input type="text" placeholder="Enter Last name"
 						name="lname" required>
 					
 					<label for="lbl_email"> <b>Email</b>
