@@ -65,7 +65,7 @@ body {
 
 				<a href=controller/change-password.php>
 					<h5>
-						<div class="text-gray-900 hover:text-gray-100">Change Password</div>
+						<div class="text-gray-900 hover:text-gray-100 w-1">Change Password</div>
 					</h5>
 				</a>
 

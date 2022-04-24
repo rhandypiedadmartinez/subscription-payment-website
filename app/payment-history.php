@@ -41,8 +41,11 @@ body {
 	height: 100%;
 	background: #3AAFA9;
 	padding-top: 80px;
+    font-family: Poppins;
 }
-
+* {
+    font-family: Poppins;
+}
 #custom_table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;

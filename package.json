@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "sudo docker build -t subscription-payment-website .",
-    "dev": "sudo docker run -p 8006:80 -p 33061:3306 -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql subscription-payment-website"
+    "dev": "sudo docker run -p 8006:80 -p 33061:3306 -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql subscription-payment-website",
+    "mysql": "docker exec -ti 9464565a883c mysql -uroot"
   }
 }

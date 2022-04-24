@@ -14,7 +14,7 @@ body, html {
 /* Add styles to the form container */
 .form-container {
 	max-width: 400px;
-    border-style: groove ;
+	border-style: groove ;
 	border-color: #FEFFFF; 
 }
 
@@ -71,7 +71,7 @@ body, html {
 
 @media only screen and (max-width: 400px) {
   .form-container {
-    max-width: 325px;
+    max-width: 306px;
   }
 	body,html {
 		background-image: linear-gradient(270deg, #172529, 43%, #3AAFA9);
