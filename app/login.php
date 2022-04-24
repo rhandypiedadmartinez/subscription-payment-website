@@ -45,7 +45,7 @@
 </style>
 
 </head>
-<body class="mt-6 justify-center flex font-poppins lg:overflow-hidden">
+<body class="mt-6 justify-center flex font-poppins">
 	<div>
 		<div class="center">
 			<span class="text-7xl mb-6"> <b>Pay</b>oda
@@ -56,8 +56,13 @@
 				class="form-container bg-[#172529] rounded-xl font-weight-medium p-4">
 
 				<div class="fw-bold text-2xl mb-1">Login</div>
-
-				<label for="lbl_email"> <b>Email</b>
+					<input type="radio" name="login_opt" value="customer" checked> 
+					<label for="lbl_customer">as customer</label><br> 
+					
+					<input type="radio" name="login_opt" value="biller"> 
+					<label for="lbl_biller">as biller</label><br> 
+					
+					<label for="lbl_email"> <b>Email</b>
 				</label> <input type="text" placeholder="Enter Email" name="email"
 					required> <label for="lbl_password"> <b>Password</b>
 				</label> <input type="password" placeholder="Enter Password"
@@ -65,18 +70,18 @@
 
 				<button type="submit" value="Login" name="sub" class="btn">Login</button>
 
-				<span class="center" style="margin-top: 15px; font-size: 12px; opacity:0.8;">Account not yet created?</span>
-
-				<a style="margin: 10px auto;" href="registration-page.php" class="btn">Register</a>
-
-				<label class="ml-12 pt-3">
+				<span class="center"
+					style="margin-top: 15px; font-size: 12px; opacity: 0.8;">Account
+					not yet created?</span> <a style="margin: 10px auto;"
+					href="registration-page.php" class="btn">Register</a> <label
+					class="ml-12 pt-3">
 					<?php
-                    if (isset($_REQUEST["err"]))
-                        $msg = "Invalid username or Password";
-                    if (isset($msg)) {
-                        echo '<h5 class="text-red-500">'.$msg.'</h5>';
-                    }
-                    ?>
+    if (isset($_REQUEST["err"]))
+        $msg = "Invalid username or Password";
+    if (isset($msg)) {
+        echo '<h5 class="text-red-500">' . $msg . '</h5>';
+    }
+    ?>
 				</label>
 			</form>
 		</div>
