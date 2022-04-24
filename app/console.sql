@@ -13,12 +13,12 @@ CREATE TABLE `persons` (
   `last_name` varchar(64) DEFAULT NULL,
   `email` varchar(256) DEFAULT NULL,
   `sha1_password` varchar(40) DEFAULT NULL,
-  `e_wallet` int(11) DEFAULT NULL,
-  `spotify_bill` int(11) DEFAULT NULL,
-  `discord_nitro_bill` int(11) DEFAULT NULL,
-  `ph_premium_bill` int(11) DEFAULT NULL,
-  `netflix_bill` int(11) DEFAULT NULL,
-  `yt_premium_bill` int(11) DEFAULT NULL,
+  `e_wallet` int(11) DEFAULT 0,
+  `spotify_bill` int(11) DEFAULT -1,
+  `discord_nitro_bill` int(11) DEFAULT -1,
+  `ph_premium_bill` int(11) DEFAULT -1,
+  `netflix_bill` int(11) DEFAULT -1,
+  `yt_premium_bill` int(11) DEFAULT -1,
   `profile_pic` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
