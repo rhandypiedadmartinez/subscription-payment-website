@@ -22,16 +22,13 @@ if ($mysqli === false) {
 <script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
 <link rel="stylesheet" href="./css/font.css">
-<script src="tailwind.config.js"></script>
+<link rel="stylesheet" href="./css/build.css">
 <style>
 body {
 	scroll-behavior: smooth;
@@ -76,55 +73,55 @@ a {
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
 				
-                   	<?php
+					<?php
 
-                    // Attempt select query execution
-                    $sql = "SELECT * FROM persons";
-                    if ($result = mysqli_query($mysqli, $sql)) {
-                        if (mysqli_num_rows($result) > 0) {
-                            echo "<div class='container'>";
-                            echo "<table>";
-                            echo "<tr>";
-                            echo "<th>id</th>";
-                            echo "<th>email</th>";
-                            echo "<th>first_name </th>";
-                            echo "<th>last_name </th>";
-                            echo "<th>e-wallet</th>";
-                            echo "<th>spotify bill</th>";
-                            echo "<th>discord nitro </th>";
-                            echo "<th>ph premium bill </th>";
-                            echo "<th>netflix bill </th>";
-                            echo "<th>youtube bill </th>";
-                            echo "<th>sha1_password </th>";
+					// Attempt select query execution
+					$sql = "SELECT * FROM persons";
+					if ($result = mysqli_query($mysqli, $sql)) {
+							if (mysqli_num_rows($result) > 0) {
+									echo "<div class='container'>";
+									echo "<table>";
+									echo "<tr>";
+									echo "<th>id</th>";
+									echo "<th>email</th>";
+									echo "<th>first_name </th>";
+									echo "<th>last_name </th>";
+									echo "<th>e-wallet</th>";
+									echo "<th>spotify bill</th>";
+									echo "<th>discord nitro </th>";
+									echo "<th>ph premium bill </th>";
+									echo "<th>netflix bill </th>";
+									echo "<th>youtube bill </th>";
+									echo "<th>sha1_password </th>";
 
-                            echo "</tr>";
-                            while ($row = mysqli_fetch_array($result)) {
-                                echo "<tr>";
-                                echo "<td>" . $row['id'] . "</td>";
-                                echo "<td>" . $row['email'] . "</td>";
-                                echo "<td>" . $row['first_name'] . "</td>";
-                                echo "<td>" . $row['last_name'] . "</td>";
-                                echo "<td>" . $row['e_wallet'] . "</td>";
-                                echo "<td>" . $row['spotify_bill'] . "</td>";
-                                echo "<td>" . $row['discord_nitro_bill'] . "</td>";
-                                echo "<td>" . $row['ph_premium_bill'] . "</td>";
-                                echo "<td>" . $row['netflix_bill'] . "</td>";
-                                echo "<td>" . $row['yt_premium_bill'] . "</td>";
-                                echo "<td>" . $row['sha1_password'] . "</td>";
-                                echo "</tr>";
-                            }
-                            echo "</table>";
-                            echo "</div>";
-                            // Free result set
-                            mysqli_free_result($result);
-                        } else {
-                            echo "No records matching your query were found.";
-                        }
-                    } else {
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
-                    }
+									echo "</tr>";
+									while ($row = mysqli_fetch_array($result)) {
+											echo "<tr>";
+											echo "<td>" . $row['id'] . "</td>";
+											echo "<td>" . $row['email'] . "</td>";
+											echo "<td>" . $row['first_name'] . "</td>";
+											echo "<td>" . $row['last_name'] . "</td>";
+											echo "<td>" . $row['e_wallet'] . "</td>";
+											echo "<td>" . $row['spotify_bill'] . "</td>";
+											echo "<td>" . $row['discord_nitro_bill'] . "</td>";
+											echo "<td>" . $row['ph_premium_bill'] . "</td>";
+											echo "<td>" . $row['netflix_bill'] . "</td>";
+											echo "<td>" . $row['yt_premium_bill'] . "</td>";
+											echo "<td>" . $row['sha1_password'] . "</td>";
+											echo "</tr>";
+									}
+									echo "</table>";
+									echo "</div>";
+									// Free result set
+									mysqli_free_result($result);
+							} else {
+									echo "No records matching your query were found.";
+							}
+					} else {
+							echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+					}
 
-                    ?>
+					?>
 			</div>
 
 			<div class="col-md-12 col-sm-12">

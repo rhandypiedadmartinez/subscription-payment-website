@@ -4,7 +4,7 @@ include ("../config.php");
 
 $current_user = $_SESSION["login"];
 
-echo $current_user . '=' . 'isAdmin' . $_SESSION['isAdmin'];
+echo $current_user . ' = ' . 'isAdmin' . $_SESSION['isAdmin'];
 
 ?>
 
@@ -27,7 +27,7 @@ echo $current_user . '=' . 'isAdmin' . $_SESSION['isAdmin'];
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
-<title>Shop</title>
+<title>Change Password</title>
 <style>
 a {
 	text-decoration: none;

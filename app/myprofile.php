@@ -21,10 +21,9 @@ mysqli_close($mysqli);
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-
 <link rel="manifest" href="manifest.json" />
+<link rel="stylesheet" href="./css/build.css" />
+
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,19 +36,17 @@ mysqli_close($mysqli);
 	?>
 </title>
 <link rel="stylesheet" href="./css/font.css">
-<script src="tailwind.config.js"></script>
 <style>
 body {
 	scroll-behavior: smooth;
 	height: 100%;
 	background: #3AAFA9;
-	padding-top: 80px;
 }
 </style>
 </head>
 <body class="font-poppins">
 	<nav
-		class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-center">
+		class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="index.php">Pay Bills</a></li>
 			<li class="nav-item"><a class="nav-link" href="payment-history.php">Payment
@@ -59,7 +56,7 @@ body {
 			<li class="nav-item"><a class="nav-link" href="controller/logout.php">Logout</a></li>
 		</ul>
 	</nav>
-	<div class="container">
+	<div class="container p-3">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
 

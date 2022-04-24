@@ -38,11 +38,6 @@ if ($result = mysqli_query($mysqli, $sql)) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 <script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<script src="tailwind.config.js"></script>
-
 <link rel="manifest" href="manifest.json" />
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -51,6 +46,8 @@ if ($result = mysqli_query($mysqli, $sql)) {
 <meta name="keywords" content="payment,subscription,website" />
 <title>Payoda</title>
 <link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="./css/build.css">
+
 </head>
 <body class="font-poppins">
 	<div>

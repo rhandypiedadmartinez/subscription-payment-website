@@ -1,2 +1,6 @@
 *.swp
+*.lock
 mysql
+node_modules
+
+.idea

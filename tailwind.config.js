@@ -1,5 +1,6 @@
-tailwind.config = {
-	theme: {
+module.exports = {
+  content: ['./app/**/*.{html,js,php}'],
+  theme: {
 		fontFamily: {
 			poppins: ['Poppins']
 		},

@@ -22,10 +22,9 @@ if ($mysqli === false) {
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="./css/font.css">
-<script src="tailwind.config.js"></script>
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/build.css">
+    <link rel="stylesheet" href="./css/payment-history.css">
 
 <link rel="manifest" href="manifest.json" />
 <meta charset="UTF-8" />
@@ -34,40 +33,12 @@ if ($mysqli === false) {
 <meta name="description" content="Subscription Payment Website" />
 <meta name="keywords" content="payment,subscription,website" />
 
-<title>Shop</title>
+<title>
+    <?php
+        echo $current_user . ' - Payment History';
+    ?>
+</title>
 <style>
-body {
-	scroll-behavior: smooth;
-	height: 100%;
-	background: #3AAFA9;
-	padding-top: 80px;
-    font-family: Poppins;
-}
-* {
-    font-family: Poppins;
-}
-#custom_table {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  background-color: #DEF2F1;
-  border-radius: 10px;
-  box-shadow: 0 0 0 10px #DEF2F1; /* this draws the table border  */ 
-}
-
-#custom_table td, #custom_table th {
-  border: 1px solid #172529;
-  padding: 8px;
-}
-
-#custom_table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #172529;
-  color: #feffff;
-  text-align: center;
-}
 
 
 
@@ -84,7 +55,7 @@ body {
 </head>
 <body class="font-poppins">
 	<nav
-		class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-center">
+		class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="index.php">Pay Bills</a></li>
 			<li class="nav-item"><a class="nav-link active">Payment
@@ -103,8 +74,8 @@ body {
                     $sql = "SELECT * FROM billing_history where customer_id='$myID'";
                     if ($result = mysqli_query($mysqli, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
-                            echo "<div class='container'>";
-                            echo "<table id='custom_table'>";
+                            echo "<div class='container flex justify-center'>";
+                            echo "<table id='custom_table' class='my-6 rounded-3'>";
                             echo "<tr>";
                             echo "<th>Timestamp</th>";
                             echo "<th>Subscription Paid</th>";
@@ -133,6 +104,5 @@ body {
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
